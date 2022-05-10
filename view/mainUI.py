@@ -8,7 +8,7 @@ import wx
 
 from model.claseUI import InterfazGrafica
 
-if __name__ == '__mainUI__':
+if __name__ == '__main__':
     app=wx.App()
     ventana=InterfazGrafica(None,-1)
     app.MainLoop()
