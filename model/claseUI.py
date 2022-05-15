@@ -105,6 +105,7 @@ class InterfazGrafica(wx.Frame):
 
         print(listaInputsTxtCtrl)
 
+#clase Clientes
 class Clientes:
     def __init__(self, nombreCliente, dniCliente):
         self.nombreCliente=nombreCliente
@@ -122,6 +123,7 @@ class Clientes:
     def getDniCliente(self):
         return self.dniCliente
     
+#clase ListaClientes
 class ListaClientes:
     def __init__(self):
         pass
