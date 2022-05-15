@@ -8,9 +8,10 @@ import wx.grid as wxgrid
 from random import randint
 filas = 4
 columnas = 4
+
 class TestFrame(wx.Frame):
-    def __init__(self,parent,title):
-            wx.Frame.__init__(self,parent=parent,title=title)
+    def __init__(self,title):
+            wx.Frame.__init__(self,title=title)
             self.grid = wxgrid.Grid(self, -1)
             self.grid.CreateGrid(filas,columnas)
             self.grid.SetRowLabelSize(0)
