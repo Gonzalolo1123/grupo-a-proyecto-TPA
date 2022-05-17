@@ -4,6 +4,8 @@ Created on 09-05-2022
 @author: Dell
 '''
 
+# cambio para commit porque por alguna razon no está actualizando repositorio
+
 import wx
 
 listaInputsTxtCtrl=[]
@@ -133,6 +135,64 @@ class ListaClientes:
     
     def vaciar(self):
         pass
+
+class Nodos:
+    def __init__(self,siguiente,anterior):
+        self.siguiente=siguiente
+        self.anterior=anterior
+        
+    def setSiguiente(self,siguiente):
+        self.siguiente=siguiente
+        
+    def getSiguiente(self):
+        return self.siguiente
+        
+    def setAnterior(self,anterior):
+        self.anterior=anterior
+        
+    def getAnterior(self):
+        return self.anterior
+
+#clase Clientes
+class Clientes(Nodos):
+    def __init__(self, siguiente, anterior, nombreCliente, dniCliente, puntuacion=0):
+        super().__init__(siguiente,anterior)
+        self.nombreCliente=nombreCliente
+        self.dniCliente=dniCliente
+        self.puntuacion=puntuacion
+        
+    def setNombreCliente(self,nombreCliente):
+        self.nombreCliente=nombreCliente
+    
+    def getNombreCliente(self):
+        return self.nombreCliente
+    
+    def setDniCliente(self,dniCliente):
+        self.dniCliente=dniCliente
+    
+    def getDniCliente(self):
+        return self.dniCliente
+    
+    def setPuntuacion(self,puntuacion):
+        self.puntuacion=puntuacion
+    
+    def getPuntuacion(self):
+        return self.puntuacion
+
+
+#clase ListaClientes
+class ListaClientes:
+    def __init__(self):
+        self.listaClientes=[]
+    
+    def esVacia(self):
+        pass
+    
+    def vaciar(self):
+        for k in range(len(self.listaClientes),-1,-1):
+            self.listaClientes.pop(k)
+            
+>>>>>>> branch 'master' of https://github.com/Gonzalolo1123/grupo-a-proyecto-TPA.git
     
     def getCabeza(self):
         pass
