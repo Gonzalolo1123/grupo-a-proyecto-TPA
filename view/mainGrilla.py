@@ -3,28 +3,26 @@ Created on 10-05-2022
 
 @author: gonza
 '''
-import wx
-import wx.grid as wxgrid
+import wx.grid 
 filas = 5
-columnas = 10
+columnas = 2
 dsa=columnas*filas
 class TestFrame(wx.Frame):
     def __init__(self,parent,title):
-            frame=wx.Frame.__init__(self,parent=parent,title=title,size=(1100,800))
+            fr=wx.Frame.__init__(self,parent=parent,title=title,size=(1100,800))
             panel=wx.Panel(self,-1)
-            self.grid = wxgrid.Grid(panel, -1,size=(1100,800))
+            self.grid = wx.grid.Grid(panel, -1,size=(1100,800))
             self.grid.CreateGrid(filas,columnas)
 
             contFilas = 0
-            contColumnas = 0
             #Ciclo imagenes en grilla
             for i in range(0,dsa,1):
                 img = wx.Bitmap("Sin_carta.jpg", wx.BITMAP_TYPE_ANY)
                 img = self.scale_bitmap(img, 100, 150)
                 imageRenderer = MyImageRenderer(img)
                 if contFilas<filas:
-                    self.grid.SetCellRenderer(contFilas,i%10, imageRenderer)
-                    self.grid.SetColSize(i%10, img.GetWidth() + 2)
+                    self.grid.SetCellRenderer(contFilas,i%columnas, imageRenderer)
+                    self.grid.SetColSize(i%columnas, img.GetWidth() + 2)
                     self.grid.SetRowSize(contFilas, img.GetHeight() + 2)
                     if i==columnas:
                         contFilas=+1
