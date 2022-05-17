@@ -17,6 +17,7 @@ class TestFrame(wx.Frame):
 
             contFilas = 0
             contColumnas = 0
+            #Ciclo imagenes en grilla
             for i in range(0,dsa,1):
                 img = wx.Bitmap("Sin_carta.jpg", wx.BITMAP_TYPE_ANY)
                 img = self.scale_bitmap(img, 100, 150)
