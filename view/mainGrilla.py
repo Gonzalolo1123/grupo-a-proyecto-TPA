@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 '''
 Created on 10-05-2022
 
@@ -126,4 +125,4 @@ if __name__=='__main__':
     fr = TestFrame(None, "Test Grid")
     fr.Show()
     app.MainLoop()
->>>>>>> branch 'master' of https://github.com/Gonzalolo1123/grupo-a-proyecto-TPA.git
+
