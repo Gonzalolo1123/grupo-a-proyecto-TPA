@@ -4,6 +4,8 @@ Created on 09-05-2022
 @author: Dell
 '''
 
+# cambio para commit porque por alguna razon no está actualizando repositorio
+
 import wx
 
 listaInputsTxtCtrl=[]
@@ -21,24 +23,39 @@ class InterfazGrafica(wx.Frame):
         self.dlg1_1 = wx.TextCtrl(panel, pos = (145,30), size = (40,20))
         self.dlg1_2 = wx.StaticText(panel, pos = (130, 30), label = "-")
         self.dlg1.SetMaxLength(8)
+        self.dlg1_1.SetMaxLength(1)
         
         #caja de texto 2
         boton2 = wx.Button(panel, label = "Buscar", pos = (200, 60))
         self.dlg2 = wx.TextCtrl(panel,pos = (10,60))
         self.dlg2_1 = wx.TextCtrl(panel, pos = (145,60), size = (40,20))
         self.dlg2_2 = wx.StaticText(panel, pos = (130, 60), label = "-")
+
+
+        boton2 = wx.Button(panel, label="Buscar", pos=(200, 60))
+        self.dlg2=wx.TextCtrl(panel,pos=(10,60))
+        self.dlg2_1 = wx.TextCtrl(panel, pos=(145,60),size=(40,20))
+        self.dlg2_2 = wx.StaticText(panel, pos=(130, 60), label="-")
+        self.dlg2.SetMaxLength(8)
+        self.dlg2_1.SetMaxLength(1)
+
         
         #caja de texto 3
         boton3 = wx.Button(panel, label="Eliminar", pos=(200, 90))
         self.dlg3=wx.TextCtrl(panel,pos=(10,90))
         self.dlg3_1 = wx.TextCtrl(panel, pos=(145,90),size=(40,20))
         self.dlg3_2 = wx.StaticText(panel, pos=(130, 90), label="-")
+        self.dlg3.SetMaxLength(8)
+        self.dlg3_1.SetMaxLength(1)
         
         #caja de texto 4
         boton4 = wx.Button(panel, label="Actualizar", pos=(200, 120))
         self.dlg4=wx.TextCtrl(panel,pos=(10,120))
         self.dlg4_1 = wx.TextCtrl(panel, pos=(145,120),size=(40,20))
         self.dlg4_2 = wx.StaticText(panel, pos=(130, 120), label="-")
+        self.dlg4.SetMaxLength(8)
+        self.dlg4_1.SetMaxLength(1)
+        
         #self.lista = wx.ListBox(panel,choices=listaInputsTxtCtrl,pos=(240,30))
 
         self.Bind(wx.EVT_BUTTON,self.ingresarCliente,boton1)
@@ -96,3 +113,109 @@ class InterfazGrafica(wx.Frame):
         self.dlg2_1.SetValue('')
 
         print(listaInputsTxtCtrl)
+
+#clase Clientes
+class Clientes:
+    def __init__(self, nombreCliente, dniCliente):
+        self.nombreCliente=nombreCliente
+        self.dniCliente=dniCliente
+        
+    def setNombreCliente(self,nombreCliente):
+        self.nombreCliente=nombreCliente
+    
+    def getNombreCliente(self):
+        return self.nombreCliente
+    
+    def setDniCliente(self,dniCliente):
+        self.dniCliente=dniCliente
+    
+    def getDniCliente(self):
+        return self.dniCliente
+    
+#clase ListaClientes
+class ListaCliente:
+    def __init__(self):
+        pass
+    
+    def esVacia(self):
+        pass
+    
+    def vaciar(self):
+        pass
+
+class Nodos:
+    def __init__(self,siguiente,anterior):
+        self.siguiente=siguiente
+        self.anterior=anterior
+        
+    def setSiguiente(self,siguiente):
+        self.siguiente=siguiente
+        
+    def getSiguiente(self):
+        return self.siguiente
+        
+    def setAnterior(self,anterior):
+        self.anterior=anterior
+        
+    def getAnterior(self):
+        return self.anterior
+
+#clase Clientes
+class Cliente(Nodos):
+    def __init__(self, siguiente, anterior, nombreCliente, dniCliente, puntuacion=0):
+        super().__init__(siguiente,anterior)
+        self.nombreCliente=nombreCliente
+        self.dniCliente=dniCliente
+        self.puntuacion=puntuacion
+        
+    def setNombreCliente(self,nombreCliente):
+        self.nombreCliente=nombreCliente
+    
+    def getNombreCliente(self):
+        return self.nombreCliente
+    
+    def setDniCliente(self,dniCliente):
+        self.dniCliente=dniCliente
+    
+    def getDniCliente(self):
+        return self.dniCliente
+    
+    def setPuntuacion(self,puntuacion):
+        self.puntuacion=puntuacion
+    
+    def getPuntuacion(self):
+        return self.puntuacion
+
+
+#clase ListaClientes
+class ListaClientes:
+    def __init__(self):
+        self.listaClientes=[]
+    
+    def esVacia(self):
+        pass
+    
+    def vaciar(self):
+        for k in range(len(self.listaClientes),-1,-1):
+            self.listaClientes.pop(k)
+    def getCabeza(self):
+        pass
+    
+    def getPrimero(self):
+        pass
+    
+    def ingresar(self,clienteIngresar,ClienteAnterior):
+        pass
+    
+    def imprimir(self):
+        pass
+    
+    def buscar(self,posicionCliente):
+        pass
+    
+    def buscarPrevio(self,posicionClienteAnterior):
+        pass
+    
+    def eliminar(self):
+        pass
+    
