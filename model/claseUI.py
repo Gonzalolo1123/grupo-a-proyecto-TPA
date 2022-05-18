@@ -11,22 +11,22 @@ listaInputsTxtCtrl=[]
 
 class InterfazGrafica(wx.Frame):
 
-    def __init__(self,parent,id):
-        wx.Frame.__init__(self,parent,id,"ventana")
-        panel=wx.Panel(self)
+    def __init__(self, parent, id):
+        wx.Frame.__init__(self, parent, id, "Jugadores")
+        panel = wx.Panel(self)
 
         #caja de texto 1
-        boton1 = wx.Button(panel, label="Ingresar", pos=(200, 30))
-        self.dlg1=wx.TextCtrl(panel,pos=(10,30))
-        self.dlg1_1 = wx.TextCtrl(panel, pos=(145,30),size=(40,20))
-        self.dlg1_2 = wx.StaticText(panel, pos=(130, 30), label="-")
+        boton1 = wx.Button(panel, label = "Ingresar", pos = (200, 30))
+        self.dlg1 = wx.TextCtrl(panel, pos = (10,30))
+        self.dlg1_1 = wx.TextCtrl(panel, pos = (145,30), size = (40,20))
+        self.dlg1_2 = wx.StaticText(panel, pos = (130, 30), label = "-")
         self.dlg1.SetMaxLength(8)
         
         #caja de texto 2
-        boton2 = wx.Button(panel, label="Buscar", pos=(200, 60))
-        self.dlg2=wx.TextCtrl(panel,pos=(10,60))
-        self.dlg2_1 = wx.TextCtrl(panel, pos=(145,60),size=(40,20))
-        self.dlg2_2 = wx.StaticText(panel, pos=(130, 60), label="-")
+        boton2 = wx.Button(panel, label = "Buscar", pos = (200, 60))
+        self.dlg2 = wx.TextCtrl(panel,pos = (10,60))
+        self.dlg2_1 = wx.TextCtrl(panel, pos = (145,60), size = (40,20))
+        self.dlg2_2 = wx.StaticText(panel, pos = (130, 60), label = "-")
         
         #caja de texto 3
         boton3 = wx.Button(panel, label="Eliminar", pos=(200, 90))
