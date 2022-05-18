@@ -5,7 +5,6 @@ Created on 09-05-2022
 '''
 
 import wx
-
 from model.grillaDificultad import botonesDificultad
 
 if __name__=='__main__':
