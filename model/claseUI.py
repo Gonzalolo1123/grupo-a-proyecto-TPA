@@ -115,34 +115,6 @@ class InterfazGrafica(wx.Frame):
         print(listaInputsTxtCtrl)
 
 #clase Clientes
-class Clientes:
-    def __init__(self, nombreCliente, dniCliente):
-        self.nombreCliente=nombreCliente
-        self.dniCliente=dniCliente
-        
-    def setNombreCliente(self,nombreCliente):
-        self.nombreCliente=nombreCliente
-    
-    def getNombreCliente(self):
-        return self.nombreCliente
-    
-    def setDniCliente(self,dniCliente):
-        self.dniCliente=dniCliente
-    
-    def getDniCliente(self):
-        return self.dniCliente
-    
-#clase ListaClientes
-class ListaCliente:
-    def __init__(self):
-        pass
-    
-    def esVacia(self):
-        pass
-    
-    def vaciar(self):
-        pass
-
 class Nodos:
     def __init__(self,siguiente,anterior):
         self.siguiente=siguiente
@@ -188,7 +160,7 @@ class Cliente(Nodos):
 
 
 #clase ListaClientes
-class ListaClientes:
+class ListaCliente:
     def __init__(self):
         self.listaClientes=[]
     
