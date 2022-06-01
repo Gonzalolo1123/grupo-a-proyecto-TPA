@@ -108,7 +108,7 @@ class InterfazGrafica(wx.Frame):
 
         print(listaInputsTxtCtrl)
 
-#clase Clientes
+#clase nodos
 class Nodos:
     def __init__(self,siguiente,anterior):
         self.siguiente=siguiente
@@ -126,25 +126,25 @@ class Nodos:
     def getAnterior(self):
         return self.anterior
 
-#clase Clientes
-class Cliente(Nodos):
-    def __init__(self, siguiente, anterior, nombreCliente, dniCliente, puntuacion=0):
+#clase jugador
+class Jugador(Nodos):
+    def __init__(self, siguiente, anterior, nombreJugador, dniJugador, puntuacion=0):
         super().__init__(siguiente,anterior)
-        self.nombreCliente=nombreCliente
-        self.dniCliente=dniCliente
+        self.nombreJugador=nombreJugador
+        self.dniJugador=dniJugador
         self.puntuacion=puntuacion
         
-    def setNombreCliente(self,nombreCliente):
-        self.nombreCliente=nombreCliente
+    def setNombreJugador(self,nombreJugador):
+        self.nombreJugador=nombreJugador
     
-    def getNombreCliente(self):
-        return self.nombreCliente
+    def getNombreJugador(self):
+        return self.nombreJugador
     
-    def setDniCliente(self,dniCliente):
-        self.dniCliente=dniCliente
+    def setDniJugador(self,dniJugador):
+        self.dniJugador=dniJugador
     
-    def getDniCliente(self):
-        return self.dniCliente
+    def getDniJugador(self):
+        return self.dniJugador
     
     def setPuntuacion(self,puntuacion):
         self.puntuacion=puntuacion
@@ -153,33 +153,34 @@ class Cliente(Nodos):
         return self.puntuacion
 
 
-#clase ListaClientes
-class ListaCliente:
+#clase lista de jugadores
+class ListaJugadores:
     def __init__(self):
-        self.listaClientes=[]
+        self.listaJugadores=[]
     
     def esVacia(self):
         pass
     
     def vaciar(self):
-        for k in range(len(self.listaClientes),-1,-1):
-            self.listaClientes.pop(k)
+        for k in range(len(self.listaJugadores),-1,-1):
+            self.listaJugadores.pop(k)
+    
     def getCabeza(self):
         pass
     
     def getPrimero(self):
         pass
     
-    def ingresar(self,clienteIngresar,ClienteAnterior):
+    def ingresar(self,jugadorIngresar,jugadorAnterior):
         pass
     
     def imprimir(self):
         pass
     
-    def buscar(self,posicionCliente):
+    def buscar(self,posicionJugador):
         pass
     
-    def buscarPrevio(self,posicionClienteAnterior):
+    def buscarPrevio(self,posicionJugadorAnterior):
         pass
     
     def eliminar(self):
