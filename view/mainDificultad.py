@@ -5,7 +5,7 @@ Created on 09-05-2022
 '''
 
 import wx
-from model.grillaDificultad import botonesDificultad
+from model.clasebD import botonesDificultad
 
 if __name__=='__main__':
     app = wx.App()
