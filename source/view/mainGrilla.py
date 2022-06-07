@@ -18,7 +18,7 @@ columnas = 4
 #
 class TestFrame(wx.Frame):
     ##
-    el metodo init establece los parametros iniciales de las variables.
+    #el metodo init establece los parametros iniciales de las variables.
     #
     def __init__(self,parent,title):
             frame=wx.Frame.__init__(self,parent=parent,title=title,size=(1100,800))
