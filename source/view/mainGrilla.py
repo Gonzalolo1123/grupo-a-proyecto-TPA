@@ -28,7 +28,7 @@ class TestFrame(wx.Frame):
 
             for i in range(0,columnas):
                 for j in range(0,filas):
-                    img = wx.Bitmap("cartas/Sin_carta.jpg", wx.BITMAP_TYPE_ANY)
+                    img = wx.Bitmap("cartapatra.jpg", wx.BITMAP_TYPE_ANY)
                     img = self.scale_bitmap(img, 100, 150)
                     imageRenderer = MyImageRenderer(img)
                     self.grid.SetCellRenderer(j,i, imageRenderer)
