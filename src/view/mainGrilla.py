@@ -43,7 +43,7 @@ class TestFrame(wx.Frame):
         image = image.Scale(width, height, wx.IMAGE_QUALITY_HIGH)
         result = wx.BitmapFromImage(image)
         return result
-
+    def clickOn(self):
 class MyImageRenderer(wx.grid.GridCellRenderer):
     def __init__(self, img):
         wx.grid.GridCellRenderer.__init__(self)
