@@ -110,7 +110,7 @@ class InterfazGrafica(wx.Frame):
 
 #clase nodos
 class Nodos:
-    def __init__(self,siguiente,anterior):
+    def __init__(self,siguiente=0,anterior=0):
         self.siguiente=siguiente
         self.anterior=anterior
         
@@ -159,11 +159,13 @@ class ListaJugadores:
         self.listaJugadores=[]
     
     def esVacia(self):
-        pass
+        if len(self.listaJugadores) == 0:
+            return True
+        else:
+            return False
     
     def vaciar(self):
-        for k in range(len(self.listaJugadores),-1,-1):
-            self.listaJugadores.pop(k)
+        pass
     
     def getCabeza(self):
         pass
@@ -171,8 +173,13 @@ class ListaJugadores:
     def getPrimero(self):
         pass
     
-    def ingresar(self,jugadorIngresar,jugadorAnterior):
-        pass
+    def ingresar(self,objJugador):
+        if objJugador in self.listaJugadores:
+            pass
+        else:
+            self.ListaJugadores.append(objJugador)
+            objJugador.setSiguiente()
+            objJugador.setAnterior()
     
     def imprimir(self):
         pass
