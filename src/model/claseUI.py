@@ -110,7 +110,7 @@ class InterfazGrafica(wx.Frame):
 
 #clase nodos
 class Nodos:
-    def __init__(self,siguiente,anterior):
+    def _init_(self,siguiente=0,anterior=0):
         self.siguiente=siguiente
         self.anterior=anterior
         
@@ -128,8 +128,8 @@ class Nodos:
 
 #clase jugador
 class Jugador(Nodos):
-    def __init__(self, siguiente, anterior, nombreJugador, dniJugador, puntuacion=0):
-        super().__init__(siguiente,anterior)
+    def _init_(self, siguiente, anterior, nombreJugador, dniJugador, puntuacion=0):
+        super()._init_(siguiente,anterior)
         self.nombreJugador=nombreJugador
         self.dniJugador=dniJugador
         self.puntuacion=puntuacion
@@ -155,15 +155,17 @@ class Jugador(Nodos):
 
 #clase lista de jugadores
 class ListaJugadores:
-    def __init__(self):
+    def _init_(self):
         self.listaJugadores=[]
     
     def esVacia(self):
-        pass
+        if len(self.listaJugadores) == 0:
+            return True
+        else:
+            return False
     
     def vaciar(self):
-        for k in range(len(self.listaJugadores),-1,-1):
-            self.listaJugadores.pop(k)
+        pass
     
     def getCabeza(self):
         pass
@@ -171,14 +173,28 @@ class ListaJugadores:
     def getPrimero(self):
         pass
     
-    def ingresar(self,jugadorIngresar,jugadorAnterior):
-        pass
+    def ingresar(self,objJugador):
+        if objJugador.buscar(objJugador.getDniJugador) == True:
+            pass
+        else:
+            if len(self.listaJugadores) < 3:
+                self.ListaJugadores.append(objJugador)
+                objJugador.setSiguiente()
+                objJugador.setAnterior()
+            else:
+                pass
     
     def imprimir(self):
         pass
     
-    def buscar(self,posicionJugador):
-        pass
+    def buscar(self,dniJugador):
+        if self.listaJugadores.esVacia == True:
+            pass
+        else:
+            for p in range(0,len(self.listaJugadores),1):
+                dniCheck=self.listaJugadores[p].getDniJugador()
+                if dniCheck == dniJugador:
+                    return True
     
     def buscarPrevio(self,posicionJugadorAnterior):
         pass
