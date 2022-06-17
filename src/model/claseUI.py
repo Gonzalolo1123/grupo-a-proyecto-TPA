@@ -130,8 +130,8 @@ class InterfazGrafica(wx.Frame):
         print(listaInputsTxtCtrl)
 
 #clase nodos
-class Nodos:
-    def _init_(self,siguiente=0,anterior=0):
+class Nodo:
+    def _init_(self,siguiente=None,anterior=None):
         self.siguiente=siguiente
         self.anterior=anterior
         
@@ -148,9 +148,9 @@ class Nodos:
         return self.anterior
 
 #clase jugador
-class Jugador(Nodos):
-    def _init_(self, siguiente, anterior, nombreJugador, dniJugador, puntuacion=0):
-        super()._init_(siguiente,anterior)
+class Jugador(Nodo):
+    def _init_(self, siguiente=None, anterior=None, nombreJugador, dniJugador, puntuacion=0):
+        super()._init_(siguiente=None,anterior=None)
         self.nombreJugador=nombreJugador
         self.dniJugador=dniJugador
         self.puntuacion=puntuacion
@@ -177,37 +177,46 @@ class Jugador(Nodos):
 #clase lista de jugadores
 class ListaJugadores:
     def _init_(self):
-        self.listaJugadores=[]
+        cabeza=Nodo()
+        cola=Nodo()
+        cabeza.setSiguiente(cola)
+        cola.setAnterior(cabeza)
+        self.listaJugadores=[cabeza, cola]
     
+    # listo
     def esVacia(self):
-        if len(self.listaJugadores) == 0:
+        if self.listaJugadores[0].getSiguiente() == self.listaJugadores[-1]:
             return True
         else:
             return False
     
+    # incompleto
     def vaciar(self):
         pass
     
+    # listo
     def getCabeza(self):
-        pass
+        return self.listaJugadores[0]
     
+    # listo
     def getPrimero(self):
-        pass
-    
-    def ingresar(self,objJugador):
-        if objJugador.buscar(objJugador.getDniJugador) == True:
+        if self.listaJugadores.esVacia == True:
             pass
         else:
-            if len(self.listaJugadores) < 3:
-                self.ListaJugadores.append(objJugador)
-                objJugador.setSiguiente()
-                objJugador.setAnterior()
-            else:
-                pass
+            return self.listaJugadores[1]
     
+    # incompleto
+    def ingresar(self,objJugador):
+        if self.listaJugadores.buscar(objJugador.getDniJugador) == True:
+            pass
+        else:
+            pass
+    
+    # incompleto
     def imprimir(self):
         pass
     
+    # listo
     def buscar(self,dniJugador):
         if self.listaJugadores.esVacia == True:
             pass
@@ -215,11 +224,13 @@ class ListaJugadores:
             for p in range(0,len(self.listaJugadores),1):
                 dniCheck=self.listaJugadores[p].getDniJugador()
                 if dniCheck == dniJugador:
-                    return True
+                    return p
     
-    def buscarPrevio(self,posicionJugadorAnterior):
+    # incompleto
+    def buscarPrevio(self,posicionJugadorActual):
         pass
     
+    # incompleto
     def eliminar(self):
         pass
     
