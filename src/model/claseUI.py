@@ -4,16 +4,22 @@ Created on 09-05-2022
 @author: Dell
 '''
 
-# cambio para commit porque por alguna razon no está actualizando repositorio
-
 import wx
 
 listaInputsTxtCtrl=[]
 
 
-class InterfazGrafica(wx.Frame):
-
+class InterfazGrafica(wx.Frame):  
+    '''
+    Esta clase es la interfaz grafica
+    '''
     def __init__(self, parent, id):
+        
+        '''
+        :parent: Es el padre de la ventana.
+        :id: Es el identificador de la ventana. Puede tomar un valor de -1 para indicar un valor predeterminado.
+        '''
+        
         wx.Frame.__init__(self, parent, id, "Jugadores")
         panel = wx.Panel(self)
 
@@ -59,6 +65,10 @@ class InterfazGrafica(wx.Frame):
         self.Show()
 
     def ingresarCliente(self,event):
+        '''
+        :event: El parametro event liga esta funcion con la interaccion con boton1.
+        '''
+        
         dniCli1=str(self.dlg1.GetValue())+"-"+str(self.dlg1_1.GetValue())
         if dniCli1 != (""):
             listaInputsTxtCtrl.append(dniCli1)
@@ -70,6 +80,10 @@ class InterfazGrafica(wx.Frame):
         self.dlg1_1.SetValue('')
 
     def buscarCliente(self,event):
+        '''
+        :event: El parametro event liga esta funcion con la interaccion con boton2.
+        '''
+        
         dniCli2 = str(self.dlg2.GetValue())+"-"+str(self.dlg2_1.GetValue())
         if len(listaInputsTxtCtrl) == 0:
             print("la lista se encuentra vacia")
@@ -83,6 +97,10 @@ class InterfazGrafica(wx.Frame):
         self.dlg2_1.SetValue('')
 
     def eliminarCliente(self,event):
+        '''
+        :event: El parametro event liga esta funcion con la interaccion con boton3.
+        '''
+        
         dniCli3 = str(self.dlg3.GetValue())+"-"+str(self.dlg3_1.GetValue())
         for i in range(0, len(listaInputsTxtCtrl),1):
             if dniCli3 == listaInputsTxtCtrl[i]:
@@ -93,6 +111,9 @@ class InterfazGrafica(wx.Frame):
         print(listaInputsTxtCtrl)
         
     def actualizarCliente(self,event):
+        '''
+        :event: El parametro event liga esta funcion con la interaccion con boton4.
+        '''
         dniCli2 = self.dlg2.GetValue()
         dniCli4 = self.dlg4.GetValue()
         for i in range(0, len(listaInputsTxtCtrl), 1):
