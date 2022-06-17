@@ -5,7 +5,6 @@ Created on 09-05-2022
 '''
 
 import wx
-
 from model.claseUI import InterfazGrafica
 
 if __name__ == '__main__':
