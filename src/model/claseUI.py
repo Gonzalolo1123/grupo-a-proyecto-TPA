@@ -193,9 +193,14 @@ class ListaJugadores:
         else: 
             return False 
 
-    # incompleto 
+    # listo 
     def vaciar(self):
-        pass
+        if self.listaJugadores.esVacia == True: 
+            return False 
+        else:
+            lenNumMenosUno=self.listaJugadores.getLen()-1
+            for l in range(lenNumMenosUno,0,-1):
+                self.listaJugadores.eliminar(self.listaJugadores[l].getDniJugador())
 
     # listo 
     def getCabeza(self): 
@@ -222,7 +227,10 @@ class ListaJugadores:
 
     # incompleto 
     def imprimir(self): 
-        pass 
+        if self.listaJugadores.esVacia == True: 
+            return False 
+        else:
+            pass 
 
     # listo 
     def buscar(self,dniJugador): 
