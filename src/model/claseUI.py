@@ -13,14 +13,14 @@ class InterfazGrafica(wx.Frame):
     '''
     Esta clase es la interfaz grafica
     '''
-    def __init__(self, parent, id):
+    def __init__(self, parent, iden):
         
         '''
         :parent: Es el padre de la ventana.
         :id: Es el identificador de la ventana. Puede tomar un valor de -1 para indicar un valor predeterminado.
         '''
         
-        wx.Frame.__init__(self, parent, id, "Jugadores")
+        wx.Frame.__init__(self, parent, iden, "Jugadores")
         panel = wx.Panel(self)
 
         #caja de texto 1
