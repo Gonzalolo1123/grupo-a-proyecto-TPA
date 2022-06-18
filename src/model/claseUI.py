@@ -182,18 +182,15 @@ class ListaJugadores:
         cola.setAnterior(cabeza) 
         self.listaJugadores=[cabeza, cola]
         
-    # listo
     def getLen(self):
         return len(self.listaJugadores)
-
-    # listo 
+ 
     def esVacia(self): 
         if self.listaJugadores[0].getSiguiente() == self.listaJugadores[-1]: 
             return True 
         else: 
             return False 
 
-    # listo 
     def vaciar(self):
         if self.listaJugadores.esVacia == True: 
             return False 
@@ -202,18 +199,15 @@ class ListaJugadores:
             for l in range(lenNumMenosUno,0,-1):
                 self.listaJugadores.eliminar(self.listaJugadores[l].getDniJugador())
 
-    # listo 
     def getCabeza(self): 
         return self.listaJugadores[0] 
-
-    # listo 
+ 
     def getPrimero(self): 
         if self.listaJugadores.esVacia == True: 
             return False 
         else: 
             return self.listaJugadores[1] 
 
-    # listo 
     def ingresar(self,objJugador): 
         if self.listaJugadores.buscar(objJugador.getDniJugador) == True: 
             return False 
@@ -224,15 +218,18 @@ class ListaJugadores:
             self.listaJugadores[lenNumMenosUno].setAnterior(self.listaJugadores[lenNumMenosUno-1])
             self.listaJugadores[lenNumMenosUno].setSiguiente(self.listaJugadores[lenNumMenosUno+1])
              
-
-    # incompleto 
     def imprimir(self): 
         if self.listaJugadores.esVacia == True: 
             return False 
         else:
-            pass 
-
-    # listo 
+            lenNumMenosDos=self.listaJugadores.getLen()-2
+            for g in range(1,lenNumMenosDos,1):
+                infoDni=self.listaJugadores[g].getDniJugador()
+                infoNombre=self.listaJugadores[g].getNombreJugador()
+                infoPuntos=self.listaJugadores[g].getPuntuacion()
+                infoJugador=str(g)+".-"+str(infoDni)+"-"+str(infoNombre)+"-"+str(infoPuntos)
+                print(infoJugador)
+ 
     def buscar(self,dniJugador): 
         if self.listaJugadores.esVacia == True: 
             return False 
@@ -242,7 +239,6 @@ class ListaJugadores:
                 if dniCheck == dniJugador: 
                     return p 
 
-    # listo 
     def buscarPrevio(self,dniJugador): 
         if self.listaJugadores.esVacia == True: 
             return False 
@@ -252,7 +248,6 @@ class ListaJugadores:
                 if dniCheck == dniJugador: 
                     return h-1 
 
-    # listo
     def eliminar(self, dniJugador): 
         if self.listaJugadores.buscar(dniJugador) == False: 
             return False 
