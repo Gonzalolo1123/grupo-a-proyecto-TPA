@@ -26,37 +26,57 @@ class InterfazGrafica(wx.Frame):
         panel = wx.Panel(self)
 
         #caja de texto 1
-        boton1 = wx.Button(panel, label = "Ingresar", pos = (200, 30))
-        self.dlg1 = wx.TextCtrl(panel, pos = (10,30))
-        self.dlg1_1 = wx.TextCtrl(panel, pos = (145,30), size = (40,20))
-        self.dlg1_2 = wx.StaticText(panel, pos = (130, 30), label = "-")
-        self.dlg1.SetMaxLength(8)
-        self.dlg1_1.SetMaxLength(1)
+        boton1 = wx.Button(panel, label = "Ingresar", pos = (10, 30))
+        
+        self.textoNombre1 = wx.StaticText(panel, pos = (10, 62), label = "Nombre")
+        
+        self.campoDniA1 = wx.TextCtrl(panel, pos = (60,60))
+        self.campoDniA1.SetMaxLength(8)
+        
+        self.textoGuion1 = wx.StaticText(panel, pos = (180, 60), label = "-")
+        
+        self.campoDniB1 = wx.TextCtrl(panel, pos = (195,60), size = (40,20))
+        self.campoDniB1.SetMaxLength(1)
         
         #caja de texto 2
-        boton2 = wx.Button(panel, label="Buscar", pos=(200, 60))
-        self.dlg2=wx.TextCtrl(panel,pos=(10,60))
-        self.dlg2_1 = wx.TextCtrl(panel, pos=(145,60),size=(40,20))
-        self.dlg2_2 = wx.StaticText(panel, pos=(130, 60), label="-")
-        self.dlg2.SetMaxLength(8)
-        self.dlg2_1.SetMaxLength(1)
+        boton2 = wx.Button(panel, label="Buscar", pos=(10, 150))
+        
+        self.textoNombre2 = wx.StaticText(panel, pos = (10, 182), label = "Nombre")
+        
+        self.campoDniA2=wx.TextCtrl(panel,pos=(60,180))
+        self.campoDniA2.SetMaxLength(8)
+        
+        self.textoGuion2 = wx.StaticText(panel, pos=(180, 180), label="-")
+        
+        self.campoDniB2 = wx.TextCtrl(panel, pos=(195,180),size=(40,20))
+        self.campoDniB2.SetMaxLength(1)
 
         
         #caja de texto 3
-        boton3 = wx.Button(panel, label="Eliminar", pos=(200, 90))
-        self.dlg3=wx.TextCtrl(panel,pos=(10,90))
-        self.dlg3_1 = wx.TextCtrl(panel, pos=(145,90),size=(40,20))
-        self.dlg3_2 = wx.StaticText(panel, pos=(130, 90), label="-")
-        self.dlg3.SetMaxLength(8)
-        self.dlg3_1.SetMaxLength(1)
+        boton3 = wx.Button(panel, label="Eliminar", pos=(10, 270))
+        
+        self.textoNombre3 = wx.StaticText(panel, pos = (10, 302), label = "Nombre")
+        
+        self.campoDniA3=wx.TextCtrl(panel,pos=(60,300))
+        self.campoDniA3.SetMaxLength(8)
+        
+        self.textoGuion3 = wx.StaticText(panel, pos=(180, 300), label="-")
+        
+        self.campoDniB3 = wx.TextCtrl(panel, pos=(195,300),size=(40,20))
+        self.campoDniB3.SetMaxLength(1)
         
         #caja de texto 4
-        boton4 = wx.Button(panel, label="Actualizar", pos=(200, 120))
-        self.dlg4=wx.TextCtrl(panel,pos=(10,120))
-        self.dlg4_1 = wx.TextCtrl(panel, pos=(145,120),size=(40,20))
-        self.dlg4_2 = wx.StaticText(panel, pos=(130, 120), label="-")
-        self.dlg4.SetMaxLength(8)
-        self.dlg4_1.SetMaxLength(1)
+        boton4 = wx.Button(panel, label="Actualizar", pos=(10, 390))
+        
+        self.textoNombre4 = wx.StaticText(panel, pos = (10, 422), label = "Nombre")
+        
+        self.campoDniA4=wx.TextCtrl(panel,pos=(60,420))
+        self.campoDniA4.SetMaxLength(8)
+        
+        self.textoGuion4 = wx.StaticText(panel, pos=(180, 420), label="-")
+        
+        self.campoDniB4 = wx.TextCtrl(panel, pos=(195,420),size=(40,20))
+        self.campoDniB4.SetMaxLength(1)
         
         #self.lista = wx.ListBox(panel,choices=listaInputsTxtCtrl,pos=(240,30))
 
@@ -71,22 +91,22 @@ class InterfazGrafica(wx.Frame):
         :event: El parametro event liga esta funcion con la interaccion con boton1.
         '''
         
-        dniCli1=str(self.dlg1.GetValue())+"-"+str(self.dlg1_1.GetValue())
+        dniCli1=str(self.campoDniA1.GetValue())+"-"+str(self.campoDniB1.GetValue())
         if dniCli1 != (""):
             listaInputsTxtCtrl.append(dniCli1)
             print(listaInputsTxtCtrl)
             print("Cliente Ingresado")
         else:
             print("Por Favor rellenar campo")
-        self.dlg1.SetValue('')
-        self.dlg1_1.SetValue('')
+        self.campoDniA1.SetValue('')
+        self.campoDniB1.SetValue('')
 
     def buscarCliente(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton2.
         '''
         
-        dniCli2 = str(self.dlg2.GetValue())+"-"+str(self.dlg2_1.GetValue())
+        dniCli2 = str(self.campoDniA2.GetValue())+"-"+str(self.campoDniB2.GetValue())
         if len(listaInputsTxtCtrl) == 0:
             print("la lista se encuentra vacia")
         else:
@@ -95,38 +115,37 @@ class InterfazGrafica(wx.Frame):
                     print("El cliente se encuentra en la lista en la posicion "+str(i))
                 else:
                     print("Cliente no encontrado")
-        self.dlg2.SetValue('')
-        self.dlg2_1.SetValue('')
+        self.campoDniA2.SetValue('')
+        self.campoDniB2.SetValue('')
 
     def eliminarCliente(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton3.
         '''
         
-        dniCli3 = str(self.dlg3.GetValue())+"-"+str(self.dlg3_1.GetValue())
+        dniCli3 = str(self.campoDniA3.GetValue())+"-"+str(self.campoDniB3.GetValue())
         for i in range(0, len(listaInputsTxtCtrl),1):
             if dniCli3 == listaInputsTxtCtrl[i]:
                 listaInputsTxtCtrl.pop(i)
         print("Cliente Eliminado Exitosamente")
-        self.dlg3.SetValue('')
-        self.dlg3_1.SetValue('')
+        self.campoDniA3.SetValue('')
+        self.campoDniB3.SetValue('')
         print(listaInputsTxtCtrl)
         
     def actualizarCliente(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton4.
         '''
-        dniCli2 = self.dlg2.GetValue()
-        dniCli4 = self.dlg4.GetValue()
+        dniCli2 = str(self.campoDniA2.GetValue())+"-"+str(self.campoDniB2.GetValue())
+        dniCli4 = str(self.campoDniA4.GetValue())+"-"+str(self.campoDniB4.GetValue())
         for i in range(0, len(listaInputsTxtCtrl), 1):
             if dniCli2 == listaInputsTxtCtrl[i]:
                 listaInputsTxtCtrl[i]= dniCli4
                 print("Cliente Actualizado")
-            else:
-                print("Cliente no encontrado")
-        self.dlg4.SetValue('')
-        self.dlg4_1.SetValue('')
-        self.dlg2.SetValue('')
-        self.dlg2_1.SetValue('')
+                
+        self.campoDniA4.SetValue('')
+        self.campoDniB4.SetValue('')
+        self.campoDniA2.SetValue('')
+        self.campoDniB2.SetValue('')
 
         print(listaInputsTxtCtrl)
