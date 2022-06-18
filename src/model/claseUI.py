@@ -173,64 +173,84 @@ class Jugador(Nodo):
     def getPuntuacion(self):
         return self.puntuacion
 
-
 #clase lista de jugadores
-class ListaJugadores:
-    def _init_(self):
-        cabeza=Nodo()
-        cola=Nodo()
-        cabeza.setSiguiente(cola)
-        cola.setAnterior(cabeza)
+class ListaJugadores: 
+    def init(self): 
+        cabeza=Nodo() 
+        cola=Nodo() 
+        cabeza.setSiguiente(cola) 
+        cola.setAnterior(cabeza) 
         self.listaJugadores=[cabeza, cola]
-    
+        
     # listo
-    def esVacia(self):
-        if self.listaJugadores[0].getSiguiente() == self.listaJugadores[-1]:
-            return True
-        else:
-            return False
-    
-    # incompleto
+    def getLen(self):
+        return len(self.listaJugadores)
+
+    # listo 
+    def esVacia(self): 
+        if self.listaJugadores[0].getSiguiente() == self.listaJugadores[-1]: 
+            return True 
+        else: 
+            return False 
+
+    # incompleto 
     def vaciar(self):
         pass
-    
+
+    # listo 
+    def getCabeza(self): 
+        return self.listaJugadores[0] 
+
+    # listo 
+    def getPrimero(self): 
+        if self.listaJugadores.esVacia == True: 
+            return False 
+        else: 
+            return self.listaJugadores[1] 
+
+    # listo 
+    def ingresar(self,objJugador): 
+        if self.listaJugadores.buscar(objJugador.getDniJugador) == True: 
+            return False 
+        else: 
+            lenNumMenosUno=self.listaJugadores.getLen()-1
+            self.listaJugadores.append(self.listaJugadores[lenNumMenosUno])
+            self.listaJugadores[lenNumMenosUno]=objJugador
+            self.listaJugadores[lenNumMenosUno].setAnterior(self.listaJugadores[lenNumMenosUno-1])
+            self.listaJugadores[lenNumMenosUno].setSiguiente(self.listaJugadores[lenNumMenosUno+1])
+             
+
+    # incompleto 
+    def imprimir(self): 
+        pass 
+
+    # listo 
+    def buscar(self,dniJugador): 
+        if self.listaJugadores.esVacia == True: 
+            return False 
+        else: 
+            for p in range(0,len(self.listaJugadores),1): 
+                dniCheck=self.listaJugadores[p].getDniJugador() 
+                if dniCheck == dniJugador: 
+                    return p 
+
+    # listo 
+    def buscarPrevio(self,dniJugador): 
+        if self.listaJugadores.esVacia == True: 
+            return False 
+        else: 
+            for h in range(0,len(self.listaJugadores),1): 
+                dniCheck=self.listaJugadores[h].getDniJugador() 
+                if dniCheck == dniJugador: 
+                    return h-1 
+
     # listo
-    def getCabeza(self):
-        return self.listaJugadores[0]
-    
-    # listo
-    def getPrimero(self):
-        if self.listaJugadores.esVacia == True:
-            pass
+    def eliminar(self, dniJugador): 
+        if self.listaJugadores.buscar(dniJugador) == False: 
+            return False 
         else:
-            return self.listaJugadores[1]
-    
-    # incompleto
-    def ingresar(self,objJugador):
-        if self.listaJugadores.buscar(objJugador.getDniJugador) == True:
-            pass
-        else:
-            pass
-    
-    # incompleto
-    def imprimir(self):
-        pass
-    
-    # listo
-    def buscar(self,dniJugador):
-        if self.listaJugadores.esVacia == True:
-            pass
-        else:
-            for p in range(0,len(self.listaJugadores),1):
-                dniCheck=self.listaJugadores[p].getDniJugador()
-                if dniCheck == dniJugador:
-                    return p
-    
-    # incompleto
-    def buscarPrevio(self,posicionJugadorActual):
-        pass
-    
-    # incompleto
-    def eliminar(self):
-        pass
-    
+            indiceElementoEliminar=self.listaJugadores.buscar(dniJugador)
+            self.listaJugadores[indiceElementoEliminar-1].setSiguiente(self.listaJugadores[indiceElementoEliminar+1])
+            self.listaJugadores[indiceElementoEliminar+1].setAnterior(self.listaJugadores[indiceElementoEliminar-1])
+            self.listaJugadores.pop[indiceElementoEliminar]
+            
