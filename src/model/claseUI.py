@@ -5,6 +5,8 @@ Created on 09-05-2022
 '''
 
 import wx
+from model.claseJugador import Jugador
+from model.claseListaJugadores import ListaJugadores
 
 listaInputsTxtCtrl=[]
 
