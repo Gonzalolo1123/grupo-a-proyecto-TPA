@@ -131,7 +131,7 @@ class InterfazGrafica(wx.Frame):
 
 #clase nodos
 class Nodo:
-    def _init_(self,siguiente=None,anterior=None):
+    def __init__(self,siguiente=None,anterior=None):
         self.siguiente=siguiente
         self.anterior=anterior
         
@@ -149,10 +149,10 @@ class Nodo:
 
 #clase jugador
 class Jugador(Nodo):
-    def _init_(self, siguiente=None, anterior=None, nombreJugador, dniJugador, puntuacion=0):
-        super()._init_(siguiente=None,anterior=None)
-        self.nombreJugador=nombreJugador
+    def __init__(self, siguiente=None, anterior=None, dniJugador="dni",nombreJugador="nom",puntuacion=0):
+        super().__init__(siguiente=None,anterior=None)
         self.dniJugador=dniJugador
+        self.nombreJugador=nombreJugador
         self.puntuacion=puntuacion
         
     def setNombreJugador(self,nombreJugador):
@@ -175,7 +175,7 @@ class Jugador(Nodo):
 
 #clase lista de jugadores
 class ListaJugadores: 
-    def init(self): 
+    def __init__(self): 
         cabeza=Nodo() 
         cola=Nodo() 
         cabeza.setSiguiente(cola) 
@@ -195,7 +195,7 @@ class ListaJugadores:
         if self.listaJugadores.esVacia == True: 
             return False 
         else:
-            lenNumMenosUno=self.listaJugadores.getLen()-1
+            lenNumMenosUno=self.getLen()-1
             for l in range(lenNumMenosUno,0,-1):
                 self.listaJugadores.eliminar(self.listaJugadores[l].getDniJugador())
 
@@ -203,27 +203,31 @@ class ListaJugadores:
         return self.listaJugadores[0] 
  
     def getPrimero(self): 
-        if self.listaJugadores.esVacia == True: 
+        if self.esVacia == True: 
             return False 
         else: 
             return self.listaJugadores[1] 
 
     def ingresar(self,objJugador): 
-        if self.listaJugadores.buscar(objJugador.getDniJugador) == True: 
+        if self.buscar(objJugador.getDniJugador) == True: 
             return False 
         else: 
-            lenNumMenosUno=self.listaJugadores.getLen()-1
+            lenNumMenosUno=self.getLen()-1
             self.listaJugadores.append(self.listaJugadores[lenNumMenosUno])
+
             self.listaJugadores[lenNumMenosUno]=objJugador
             self.listaJugadores[lenNumMenosUno].setAnterior(self.listaJugadores[lenNumMenosUno-1])
             self.listaJugadores[lenNumMenosUno].setSiguiente(self.listaJugadores[lenNumMenosUno+1])
+
+            self.listaJugadores[lenNumMenosUno+1].setAnterior(self.listaJugadores[lenNumMenosUno])
+            self.listaJugadores[lenNumMenosUno-1].setSiguiente(self.listaJugadores[lenNumMenosUno])
              
     def imprimir(self): 
-        if self.listaJugadores.esVacia == True: 
+        if self.esVacia == True: 
             return False 
         else:
-            lenNumMenosDos=self.listaJugadores.getLen()-2
-            for g in range(1,lenNumMenosDos,1):
+            lenNumMenosUno=self.getLen()-1
+            for g in range(1,lenNumMenosUno,1):
                 infoDni=self.listaJugadores[g].getDniJugador()
                 infoNombre=self.listaJugadores[g].getNombreJugador()
                 infoPuntos=self.listaJugadores[g].getPuntuacion()
@@ -231,16 +235,17 @@ class ListaJugadores:
                 print(infoJugador)
  
     def buscar(self,dniJugador): 
-        if self.listaJugadores.esVacia == True: 
+        if self.esVacia == True: 
             return False 
         else: 
-            for p in range(0,len(self.listaJugadores),1): 
+            lenNumMenosUno=self.getLen()-1
+            for p in range(1,lenNumMenosUno,1): 
                 dniCheck=self.listaJugadores[p].getDniJugador() 
                 if dniCheck == dniJugador: 
                     return p 
 
     def buscarPrevio(self,dniJugador): 
-        if self.listaJugadores.esVacia == True: 
+        if self.esVacia == True: 
             return False 
         else: 
             for h in range(0,len(self.listaJugadores),1): 
@@ -249,7 +254,7 @@ class ListaJugadores:
                     return h-1 
 
     def eliminar(self, dniJugador): 
-        if self.listaJugadores.buscar(dniJugador) == False: 
+        if self.buscar(dniJugador) == False: 
             return False 
         else:
             indiceElementoEliminar=self.listaJugadores.buscar(dniJugador)
@@ -257,3 +262,9 @@ class ListaJugadores:
             self.listaJugadores[indiceElementoEliminar+1].setAnterior(self.listaJugadores[indiceElementoEliminar-1])
             self.listaJugadores.pop[indiceElementoEliminar]
             
+lis=ListaJugadores()
+jug1=Jugador(None,None,"20.842.524-2","Sergio Martínez",800)
+jug2=Jugador(None,None,"89309183291023","pancho",666)
+lis.ingresar(jug1)
+lis.ingresar(jug2)
+lis.imprimir()
