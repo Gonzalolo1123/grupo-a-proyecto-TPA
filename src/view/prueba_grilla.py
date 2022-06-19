@@ -33,9 +33,10 @@ class TestFrame(wx.Frame):
             self.grid.SetColLabelSize(0)
 
     def click(self, event):
-        col=event.GetColPos
-        self.grid.SetCellRenderer(col, 1, self.imageRenderer)
-        self.grid.SetColSize(1, self.img.GetWidth() + 2)
+        col=event.GetCol()
+        fil=event.GetRow()
+        self.grid.SetCellRenderer(fil, col, self.imageRenderer)
+        self.grid.SetColSize(fil, self.img.GetWidth() + 2)
         self.grid.SetRowSize(col, self.img.GetHeight() + 2)
     def scale_bitmap(self,bitmap, width, height):
         image = wx.ImageFromBitmap(bitmap)
