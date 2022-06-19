@@ -1,13 +1,8 @@
-'''
-Created on 18-06-2022
-
-@author: gonza
-'''
-#en este archivo lo que estoy intentando es hacer funcionar el click para agregar una imagen en la casilla que se seleccione
-#si logramos eso estamos al otro lado 
 import wx
 import wx.grid as wxgrid
 import random
+#en este archivo lo que estoy intentando es hacer funcionar el click para agregar una imagen en la casilla que se seleccione
+#si logramos eso estamos al otro lado 
 filas = 4
 columnas = 4
 tamaño= (1100,800)
@@ -26,11 +21,11 @@ class TestFrame(wx.Frame):
             res.extend(res)
             random.shuffle(res)
             matrizaux.append(res)
-            self.Bind(wx.grid.EVT_GRID_CELL_LEFT_CLICK,self.click())
+            self.Bind(wx.grid.EVT_GRID_CELL_LEFT_CLICK,self.click)
             for c in matrizaux[0]:
-                img = wx.Bitmap("cardsColors/" + str(c) + ".jpg", wx.BITMAP_TYPE_ANY)
-                img = self.scale_bitmap(img, 100, 150)
-                self.imageRenderer = MyImageRenderer(img)
+                self.img = wx.Bitmap("cardsColors/"+ str(c) + ".jpg", wx.BITMAP_TYPE_ANY)
+                self.img = self.scale_bitmap(self.img, 100, 150)
+                self.imageRenderer = MyImageRenderer(self.img)
 
             self.Centre(True)
             self.Show()
@@ -40,8 +35,8 @@ class TestFrame(wx.Frame):
     def click(self, event):
         col=event.GetColPos
         self.grid.SetCellRenderer(col, 1, self.imageRenderer)
-        self.grid.SetColSize(1, img.GetWidth() + 2)
-        self.grid.SetRowSize(col, img.GetHeight() + 2)
+        self.grid.SetColSize(1, self.img.GetWidth() + 2)
+        self.grid.SetRowSize(col, self.img.GetHeight() + 2)
     def scale_bitmap(self,bitmap, width, height):
         image = wx.ImageFromBitmap(bitmap)
         image = image.Scale(width, height, wx.IMAGE_QUALITY_HIGH)
