@@ -5,6 +5,7 @@ Created on 18-06-2022
 '''
 
 from model.claseNodo import Nodo
+from model.claseJugador import Jugador
 
 #clase lista de jugadores
 class ListaJugadores: 
@@ -30,7 +31,7 @@ class ListaJugadores:
         else:
             lenNumMenosUno=self.getLen()-1
             for l in range(lenNumMenosUno,0,-1):
-                self.listaJugadores.eliminar(self.listaJugadores[l].getDniJugador())
+                self.listaJugadores.eliminar(self.listaJugadores[l].getNombreJugador(),self.listaJugadores[l].getDniJugador())
 
     def getCabeza(self): 
         return self.listaJugadores[0] 
@@ -41,10 +42,11 @@ class ListaJugadores:
         else: 
             return self.listaJugadores[1] 
 
-    def ingresar(self,objJugador): 
-        if self.buscar(objJugador.getDniJugador) == True: 
+    def ingresar(self,nombreJugador,dniJugador): 
+        if self.buscar(nombreJugador,dniJugador) == True: 
             return False 
-        else: 
+        else:
+            objJugador=Jugador(None,None,str(nombreJugador,dniJugador)) 
             lenNumMenosUno=self.getLen()-1
             self.listaJugadores.append(self.listaJugadores[lenNumMenosUno])
 
@@ -67,14 +69,15 @@ class ListaJugadores:
                 infoJugador=str(g)+".-"+str(infoDni)+"-"+str(infoNombre)+"-"+str(infoPuntos)
                 print(infoJugador)
  
-    def buscar(self,dniJugador): 
+    def buscar(self,nombreJugador,dniJugador): 
         if self.esVacia == True: 
             return False 
         else: 
             lenNumMenosUno=self.getLen()-1
             for p in range(1,lenNumMenosUno,1): 
-                dniCheck=self.listaJugadores[p].getDniJugador() 
-                if dniCheck == dniJugador: 
+                dniCheck=self.listaJugadores[p].getDniJugador()
+                nombreCheck= self.listaJugadores[p].getNombreJugador()
+                if nombreCheck == nombreJugador and dniCheck == dniJugador: 
                     return p 
 
     def buscarPrevio(self,dniJugador): 
@@ -86,11 +89,11 @@ class ListaJugadores:
                 if dniCheck == dniJugador: 
                     return h-1 
 
-    def eliminar(self, dniJugador): 
-        if self.buscar(dniJugador) == False: 
+    def eliminar(self,nombreJugador,dniJugador): 
+        if self.buscar(nombreJugador,dniJugador) == False: 
             return False 
         else:
-            indiceElementoEliminar=self.listaJugadores.buscar(dniJugador)
+            indiceElementoEliminar=self.listaJugadores.buscar(nombreJugador,dniJugador)
             self.listaJugadores[indiceElementoEliminar-1].setSiguiente(self.listaJugadores[indiceElementoEliminar+1])
             self.listaJugadores[indiceElementoEliminar+1].setAnterior(self.listaJugadores[indiceElementoEliminar-1])
             self.listaJugadores.pop[indiceElementoEliminar]
