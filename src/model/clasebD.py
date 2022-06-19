@@ -6,6 +6,9 @@ Created on 2 jun. 2022
 import wx
 
 class botonesDificultad(wx.Frame):
+    '''
+    Estos son los botones dificultad
+    '''
     def __init__(self,parent,title):
         wx. Frame.__init__(self, parent,title=title, size=(300,250))
         self.boton1 = wx.Button(self, 0, "Facil", size=(100, 50), pos=(100,10))
