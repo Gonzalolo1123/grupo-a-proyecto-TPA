@@ -8,7 +8,7 @@ import wx
 from model.claseJugador import Jugador
 from model.claseListaJugadores import ListaJugadores
 
-listaInputsTxtCtrl=[]
+lis=ListaJugadores()
 
 
 class InterfazGrafica(wx.Frame):  
@@ -105,22 +105,22 @@ class InterfazGrafica(wx.Frame):
         self.Bind(wx.EVT_BUTTON,self.actualizarCliente,boton4)
         self.Show()
 
-    def ingresarCliente(self,event):
+    def ingresarJugador(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton1.
         '''
         
-        dniCli1=str(self.campoDniA1.GetValue())+"-"+str(self.campoDniB1.GetValue())
-        if dniCli1 != (""):
-            listaInputsTxtCtrl.append(dniCli1)
-            print(listaInputsTxtCtrl)
+        infoNombre=str(self.campoNombre1.GetValue())
+        infoDni=str(self.campoDniA1.GetValue())+"-"+str(self.campoDniB1.GetValue())
+        if infoNombre != ("") and infoDni != (""):
+            
             print("Cliente Ingresado")
         else:
             print("Por Favor rellenar campo")
         self.campoDniA1.SetValue('')
         self.campoDniB1.SetValue('')
 
-    def buscarCliente(self,event):
+    def buscarJugador(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton2.
         '''
@@ -137,7 +137,7 @@ class InterfazGrafica(wx.Frame):
         self.campoDniA2.SetValue('')
         self.campoDniB2.SetValue('')
 
-    def eliminarCliente(self,event):
+    def eliminarJugador(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton3.
         '''
@@ -151,7 +151,7 @@ class InterfazGrafica(wx.Frame):
         self.campoDniB3.SetValue('')
         print(listaInputsTxtCtrl)
         
-    def actualizarCliente(self,event):
+    def actualizarJugador(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton4.
         '''
