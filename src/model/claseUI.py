@@ -125,15 +125,6 @@ class InterfazGrafica(wx.Frame):
         :event: El parametro event liga esta funcion con la interaccion con boton2.
         '''
         
-        dniCli2 = str(self.campoDniA2.GetValue())+"-"+str(self.campoDniB2.GetValue())
-        if len(listaInputsTxtCtrl) == 0:
-            print("la lista se encuentra vacia")
-        else:
-            for i in range(0,len(listaInputsTxtCtrl),1):
-                if dniCli2 == listaInputsTxtCtrl[i]:
-                    print("El cliente se encuentra en la lista en la posicion "+str(i))
-                else:
-                    print("Cliente no encontrado")
         self.campoDniA2.SetValue('')
         self.campoDniB2.SetValue('')
 
@@ -142,29 +133,14 @@ class InterfazGrafica(wx.Frame):
         :event: El parametro event liga esta funcion con la interaccion con boton3.
         '''
         
-        dniCli3 = str(self.campoDniA3.GetValue())+"-"+str(self.campoDniB3.GetValue())
-        for i in range(0, len(listaInputsTxtCtrl),1):
-            if dniCli3 == listaInputsTxtCtrl[i]:
-                listaInputsTxtCtrl.pop(i)
-        print("Cliente Eliminado Exitosamente")
         self.campoDniA3.SetValue('')
         self.campoDniB3.SetValue('')
-        print(listaInputsTxtCtrl)
         
     def actualizarJugador(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton4.
         '''
-        dniCli2 = str(self.campoDniA2.GetValue())+"-"+str(self.campoDniB2.GetValue())
-        dniCli4 = str(self.campoDniA4.GetValue())+"-"+str(self.campoDniB4.GetValue())
-        for i in range(0, len(listaInputsTxtCtrl), 1):
-            if dniCli2 == listaInputsTxtCtrl[i]:
-                listaInputsTxtCtrl[i]= dniCli4
-                print("Cliente Actualizado")
                 
         self.campoDniA4.SetValue('')
         self.campoDniB4.SetValue('')
-        self.campoDniA2.SetValue('')
-        self.campoDniB2.SetValue('')
-
-        print(listaInputsTxtCtrl)
+        
