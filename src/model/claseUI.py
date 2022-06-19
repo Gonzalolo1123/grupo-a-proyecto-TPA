@@ -26,57 +26,76 @@ class InterfazGrafica(wx.Frame):
         panel = wx.Panel(self)
 
         #caja de texto 1
+        
         boton1 = wx.Button(panel, label = "Ingresar", pos = (10, 30))
         
-        self.textoNombre1 = wx.StaticText(panel, pos = (10, 62), label = "Nombre")
+        self.textoDni1 = wx.StaticText(panel, pos = (36, 94), label = "Dni")
         
-        self.campoDniA1 = wx.TextCtrl(panel, pos = (60,60))
+        self.campoDniA1 = wx.TextCtrl(panel, pos = (60,90), size = (64,20))
         self.campoDniA1.SetMaxLength(8)
         
-        self.textoGuion1 = wx.StaticText(panel, pos = (180, 60), label = "-")
+        self.textoGuion1 = wx.StaticText(panel, pos = (132, 90), label = "-")
         
-        self.campoDniB1 = wx.TextCtrl(panel, pos = (195,60), size = (40,20))
+        self.campoDniB1 = wx.TextCtrl(panel, pos = (145,90), size = (20,20))
         self.campoDniB1.SetMaxLength(1)
         
+        self.textoNombre1 = wx.StaticText(panel, pos = (10,62), label = "Nombre")
+        
+        self.campoNombre1 = wx.TextCtrl(panel, pos = (60,60), size = (105,20))
+        
         #caja de texto 2
+        
         boton2 = wx.Button(panel, label="Buscar", pos=(10, 150))
         
-        self.textoNombre2 = wx.StaticText(panel, pos = (10, 182), label = "Nombre")
+        self.textoDni2 = wx.StaticText(panel, pos = (36, 214), label = "Dni")
         
-        self.campoDniA2=wx.TextCtrl(panel,pos=(60,180))
+        self.campoDniA2 = wx.TextCtrl(panel, pos = (60,210), size = (64,20))
         self.campoDniA2.SetMaxLength(8)
         
-        self.textoGuion2 = wx.StaticText(panel, pos=(180, 180), label="-")
+        self.textoGuion2 = wx.StaticText(panel, pos = (132, 210), label = "-")
         
-        self.campoDniB2 = wx.TextCtrl(panel, pos=(195,180),size=(40,20))
+        self.campoDniB2 = wx.TextCtrl(panel, pos = (145,210), size = (20,20))
         self.campoDniB2.SetMaxLength(1)
-
+        
+        self.textoNombre2 = wx.StaticText(panel, pos = (10,182), label = "Nombre")
+        
+        self.campoNombre2 = wx.TextCtrl(panel, pos = (60,180), size = (105,20))
         
         #caja de texto 3
+        
         boton3 = wx.Button(panel, label="Eliminar", pos=(10, 270))
         
-        self.textoNombre3 = wx.StaticText(panel, pos = (10, 302), label = "Nombre")
+        self.textoDni3 = wx.StaticText(panel, pos = (36, 334), label = "Dni")
         
-        self.campoDniA3=wx.TextCtrl(panel,pos=(60,300))
+        self.campoDniA3 = wx.TextCtrl(panel, pos = (60,330), size = (64,20))
         self.campoDniA3.SetMaxLength(8)
         
-        self.textoGuion3 = wx.StaticText(panel, pos=(180, 300), label="-")
+        self.textoGuion3 = wx.StaticText(panel, pos = (132, 330), label = "-")
         
-        self.campoDniB3 = wx.TextCtrl(panel, pos=(195,300),size=(40,20))
+        self.campoDniB3 = wx.TextCtrl(panel, pos = (145,330), size = (20,20))
         self.campoDniB3.SetMaxLength(1)
         
+        self.textoNombre3 = wx.StaticText(panel, pos = (10,302), label = "Nombre")
+        
+        self.campoNombre3 = wx.TextCtrl(panel, pos = (60,300), size = (105,20))
+        
         #caja de texto 4
+        
         boton4 = wx.Button(panel, label="Actualizar", pos=(10, 390))
         
-        self.textoNombre4 = wx.StaticText(panel, pos = (10, 422), label = "Nombre")
+        self.textoDni4 = wx.StaticText(panel, pos = (36, 454), label = "Dni")
         
-        self.campoDniA4=wx.TextCtrl(panel,pos=(60,420))
+        self.campoDniA4 = wx.TextCtrl(panel, pos = (60,450), size = (64,20))
         self.campoDniA4.SetMaxLength(8)
         
-        self.textoGuion4 = wx.StaticText(panel, pos=(180, 420), label="-")
+        self.textoGuion4 = wx.StaticText(panel, pos = (132, 450), label = "-")
         
-        self.campoDniB4 = wx.TextCtrl(panel, pos=(195,420),size=(40,20))
+        self.campoDniB4 = wx.TextCtrl(panel, pos = (145,450), size = (20,20))
         self.campoDniB4.SetMaxLength(1)
+        
+        self.textoNombre4 = wx.StaticText(panel, pos = (10,422), label = "Nombre")
+        
+        self.campoNombre4 = wx.TextCtrl(panel, pos = (60,420), size = (105,20))
         
         #self.lista = wx.ListBox(panel,choices=listaInputsTxtCtrl,pos=(240,30))
 
