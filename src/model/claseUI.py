@@ -5,7 +5,6 @@ Created on 09-05-2022
 '''
 
 import wx
-from model.claseJugador import Jugador
 from model.claseListaJugadores import ListaJugadores
 
 lis=ListaJugadores()
@@ -99,10 +98,10 @@ class InterfazGrafica(wx.Frame):
         
         #self.lista = wx.ListBox(panel,choices=listaInputsTxtCtrl,pos=(240,30))
 
-        self.Bind(wx.EVT_BUTTON,self.ingresarCliente,boton1)
-        self.Bind(wx.EVT_BUTTON,self.buscarCliente,boton2)
-        self.Bind(wx.EVT_BUTTON,self.eliminarCliente,boton3)
-        self.Bind(wx.EVT_BUTTON,self.actualizarCliente,boton4)
+        self.Bind(wx.EVT_BUTTON,self.ingresarJugador,boton1)
+        self.Bind(wx.EVT_BUTTON,self.buscarJugador,boton2)
+        self.Bind(wx.EVT_BUTTON,self.eliminarJugador,boton3)
+        self.Bind(wx.EVT_BUTTON,self.actualizarJugador,boton4)
         self.Show()
 
     def ingresarJugador(self,event):
@@ -112,11 +111,14 @@ class InterfazGrafica(wx.Frame):
         
         infoNombre=str(self.campoNombre1.GetValue())
         infoDni=str(self.campoDniA1.GetValue())+"-"+str(self.campoDniB1.GetValue())
-        if infoNombre != ("") and infoDni != (""):
-            
+        if infoNombre != ("") and infoDni != ("-"):
+            lis.ingresar(infoNombre, infoDni)
             print("Cliente Ingresado")
         else:
             print("Por Favor rellenar campo")
+            
+        lis.imprimir()
+        self.campoNombre1.SetValue('')
         self.campoDniA1.SetValue('')
         self.campoDniB1.SetValue('')
 
@@ -125,6 +127,15 @@ class InterfazGrafica(wx.Frame):
         :event: El parametro event liga esta funcion con la interaccion con boton2.
         '''
         
+        infoNombre=str(self.campoNombre2.GetValue())
+        infoDni=str(self.campoDniA2.GetValue())+"-"+str(self.campoDniB2.GetValue())
+        if infoNombre != ("") and infoDni != ("-"):
+            if lis.buscar(infoNombre, infoDni) == False:
+                pass
+            else:
+                indiceJugador=lis.buscar(infoNombre, infoDni)
+        
+        self.campoNombre2.SetValue('')
         self.campoDniA2.SetValue('')
         self.campoDniB2.SetValue('')
 
@@ -133,6 +144,13 @@ class InterfazGrafica(wx.Frame):
         :event: El parametro event liga esta funcion con la interaccion con boton3.
         '''
         
+        infoNombre=str(self.campoNombre3.GetValue())
+        infoDni=str(self.campoDniA3.GetValue())+"-"+str(self.campoDniB3.GetValue())
+        if infoNombre != ("") and infoDni != ("-"):
+            lis.eliminar(infoNombre, infoDni)
+        
+        lis.imprimir()
+        self.campoNombre3.SetValue('')
         self.campoDniA3.SetValue('')
         self.campoDniB3.SetValue('')
         
@@ -140,7 +158,11 @@ class InterfazGrafica(wx.Frame):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton4.
         '''
-                
+        
+        
+        
+        lis.imprimir()
+        self.campoNombre4.SetValue('')
         self.campoDniA4.SetValue('')
         self.campoDniB4.SetValue('')
         

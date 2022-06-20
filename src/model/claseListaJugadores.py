@@ -46,8 +46,8 @@ class ListaJugadores:
         if self.buscar(nombreJugador,dniJugador) == True: 
             return False 
         else:
-            objJugador=Jugador(None,None,str(nombreJugador,dniJugador)) 
-            lenNumMenosUno=self.getLen()-1
+            objJugador=Jugador(None,None,nombreJugador,dniJugador)
+            lenNumMenosUno=(self.getLen())-1
             self.listaJugadores.append(self.listaJugadores[lenNumMenosUno])
 
             self.listaJugadores[lenNumMenosUno]=objJugador
@@ -70,24 +70,31 @@ class ListaJugadores:
                 print(infoJugador)
  
     def buscar(self,nombreJugador,dniJugador): 
-        if self.esVacia == True: 
-            return False 
+        if self.esVacia == True:
+            return False
         else: 
-            lenNumMenosUno=self.getLen()-1
-            for p in range(1,lenNumMenosUno,1): 
+            lenNumMenosUno=(self.getLen())-1
+            for p in range(1,lenNumMenosUno,1):
+                nombreCheck=self.listaJugadores[p].getNombreJugador()
                 dniCheck=self.listaJugadores[p].getDniJugador()
-                nombreCheck= self.listaJugadores[p].getNombreJugador()
-                if nombreCheck == nombreJugador and dniCheck == dniJugador: 
-                    return p 
+                if nombreCheck == nombreJugador and dniCheck == dniJugador:
+                    return p
+                else:
+                    if p == lenNumMenosUno-1:
+                        return False
 
-    def buscarPrevio(self,dniJugador): 
+    def buscarPrevio(self,nombreJugador,dniJugador): 
         if self.esVacia == True: 
-            return False 
+            return False
         else: 
-            for h in range(0,len(self.listaJugadores),1): 
-                dniCheck=self.listaJugadores[h].getDniJugador() 
-                if dniCheck == dniJugador: 
-                    return h-1 
+            lenNumMenosUno=(self.getLen())-1
+            for h in range(1,lenNumMenosUno,1):
+                nombreCheck= self.listaJugadores[h].getNombreJugador()
+                dniCheck=self.listaJugadores[h].getDniJugador()
+                if nombreCheck == nombreJugador and dniCheck == dniJugador: 
+                    return h-1
+                else:
+                    return False 
 
     def eliminar(self,nombreJugador,dniJugador): 
         if self.buscar(nombreJugador,dniJugador) == False: 

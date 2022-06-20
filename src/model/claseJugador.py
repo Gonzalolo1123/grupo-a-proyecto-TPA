@@ -8,10 +8,10 @@ from model.claseNodo import Nodo
 
 #clase jugador
 class Jugador(Nodo):
-    def __init__(self, siguiente=None, anterior=None, dniJugador="dni",nombreJugador="nom",puntuacion=0):
+    def __init__(self, siguiente=None, anterior=None, nombreJugador="nom", dniJugador="dni", puntuacion=0):
         super().__init__(siguiente=None,anterior=None)
-        self.dniJugador=dniJugador
         self.nombreJugador=nombreJugador
+        self.dniJugador=dniJugador
         self.puntuacion=puntuacion
         
     def setNombreJugador(self,nombreJugador):
