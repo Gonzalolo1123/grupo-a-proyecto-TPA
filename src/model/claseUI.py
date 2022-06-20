@@ -24,9 +24,17 @@ class InterfazGrafica(wx.Frame):
         wx.Frame.__init__(self, parent, iden, "Jugadores")
         panel = wx.Panel(self)
 
-        #caja de texto 1
+        # boton 1
         
         boton1 = wx.Button(panel, label = "Ingresar", pos = (10, 30))
+        
+        # campo nombre 1
+        
+        self.textoNombre1 = wx.StaticText(panel, pos = (10,62), label = "Nombre")
+        
+        self.campoNombre1 = wx.TextCtrl(panel, pos = (60,60), size = (105,20))
+        
+        # campo dni 1
         
         self.textoDni1 = wx.StaticText(panel, pos = (36, 94), label = "Dni")
         
@@ -38,13 +46,17 @@ class InterfazGrafica(wx.Frame):
         self.campoDniB1 = wx.TextCtrl(panel, pos = (145,90), size = (20,20))
         self.campoDniB1.SetMaxLength(1)
         
-        self.textoNombre1 = wx.StaticText(panel, pos = (10,62), label = "Nombre")
+        # boton 2
         
-        self.campoNombre1 = wx.TextCtrl(panel, pos = (60,60), size = (105,20))
+        boton2 = wx.Button(panel, label="Seleccionar", pos=(10, 150))
         
-        #caja de texto 2
+        # campo nombre 2
         
-        boton2 = wx.Button(panel, label="Buscar", pos=(10, 150))
+        self.textoNombre2 = wx.StaticText(panel, pos = (10,182), label = "Nombre")
+        
+        self.campoNombre2 = wx.TextCtrl(panel, pos = (60,180), size = (105,20))
+        
+        # campo dni 2
         
         self.textoDni2 = wx.StaticText(panel, pos = (36, 214), label = "Dni")
         
@@ -56,13 +68,17 @@ class InterfazGrafica(wx.Frame):
         self.campoDniB2 = wx.TextCtrl(panel, pos = (145,210), size = (20,20))
         self.campoDniB2.SetMaxLength(1)
         
-        self.textoNombre2 = wx.StaticText(panel, pos = (10,182), label = "Nombre")
-        
-        self.campoNombre2 = wx.TextCtrl(panel, pos = (60,180), size = (105,20))
-        
-        #caja de texto 3
+        # boton 3
         
         boton3 = wx.Button(panel, label="Eliminar", pos=(10, 270))
+        
+        # campo nombre 3
+        
+        self.textoNombre3 = wx.StaticText(panel, pos = (10,302), label = "Nombre")
+        
+        self.campoNombre3 = wx.TextCtrl(panel, pos = (60,300), size = (105,20))
+        
+        # campo dni 3
         
         self.textoDni3 = wx.StaticText(panel, pos = (36, 334), label = "Dni")
         
@@ -74,32 +90,51 @@ class InterfazGrafica(wx.Frame):
         self.campoDniB3 = wx.TextCtrl(panel, pos = (145,330), size = (20,20))
         self.campoDniB3.SetMaxLength(1)
         
-        self.textoNombre3 = wx.StaticText(panel, pos = (10,302), label = "Nombre")
-        
-        self.campoNombre3 = wx.TextCtrl(panel, pos = (60,300), size = (105,20))
-        
-        #caja de texto 4
+        # boton 4
         
         boton4 = wx.Button(panel, label="Actualizar", pos=(10, 390))
         
-        self.textoDni4 = wx.StaticText(panel, pos = (36, 454), label = "Dni")
+        # campo nombre 4
         
-        self.campoDniA4 = wx.TextCtrl(panel, pos = (60,450), size = (64,20))
+        self.textoNombre4 = wx.StaticText(panel, pos = (10,422), label = ("Nombre"+"\n"+"viejo"))
+        
+        self.campoNombre4 = wx.TextCtrl(panel, pos = (60,428), size = (105,20))
+        
+        # campo dni 4
+        
+        self.textoDni4 = wx.StaticText(panel, pos = (28, 460), label = ("Dni"+"\n"+"viejo"))
+        
+        self.campoDniA4 = wx.TextCtrl(panel, pos = (60,466), size = (64,20))
         self.campoDniA4.SetMaxLength(8)
         
-        self.textoGuion4 = wx.StaticText(panel, pos = (132, 450), label = "-")
+        self.textoGuion4 = wx.StaticText(panel, pos = (132, 466), label = "-")
         
-        self.campoDniB4 = wx.TextCtrl(panel, pos = (145,450), size = (20,20))
+        self.campoDniB4 = wx.TextCtrl(panel, pos = (145,466), size = (20,20))
         self.campoDniB4.SetMaxLength(1)
         
-        self.textoNombre4 = wx.StaticText(panel, pos = (10,422), label = "Nombre")
+        # nuevos datos
+        # campo nombre 5
         
-        self.campoNombre4 = wx.TextCtrl(panel, pos = (60,420), size = (105,20))
+        self.textoNombre5 = wx.StaticText(panel, pos = (10,498), label = ("Nombre"+"\n"+"nuevo"))
+        
+        self.campoNombre5 = wx.TextCtrl(panel, pos = (60,504), size = (105,20))
+        
+        # campo dni 5
+        
+        self.textoDni5 = wx.StaticText(panel, pos = (22, 536), label = ("Dni"+"\n"+"nuevo"))
+        
+        self.campoDniA5 = wx.TextCtrl(panel, pos = (60,542), size = (64,20))
+        self.campoDniA5.SetMaxLength(8)
+        
+        self.textoGuion5 = wx.StaticText(panel, pos = (132, 542), label = "-")
+        
+        self.campoDniB5 = wx.TextCtrl(panel, pos = (145,542), size = (20,20))
+        self.campoDniB5.SetMaxLength(1)
         
         #self.lista = wx.ListBox(panel,choices=listaInputsTxtCtrl,pos=(240,30))
 
         self.Bind(wx.EVT_BUTTON,self.ingresarJugador,boton1)
-        self.Bind(wx.EVT_BUTTON,self.buscarJugador,boton2)
+        self.Bind(wx.EVT_BUTTON,self.seleccionarJugador,boton2)
         self.Bind(wx.EVT_BUTTON,self.eliminarJugador,boton3)
         self.Bind(wx.EVT_BUTTON,self.actualizarJugador,boton4)
         self.Show()
@@ -113,16 +148,27 @@ class InterfazGrafica(wx.Frame):
         infoDni=str(self.campoDniA1.GetValue())+"-"+str(self.campoDniB1.GetValue())
         if infoNombre != ("") and infoDni != ("-"):
             lis.ingresar(infoNombre, infoDni)
-            print("Cliente Ingresado")
         else:
-            print("Por Favor rellenar campo")
+            pass
             
         lis.imprimir()
         self.campoNombre1.SetValue('')
         self.campoDniA1.SetValue('')
         self.campoDniB1.SetValue('')
+        self.campoNombre2.SetValue('')
+        self.campoDniA2.SetValue('')
+        self.campoDniB2.SetValue('')
+        self.campoNombre3.SetValue('')
+        self.campoDniA3.SetValue('')
+        self.campoDniB3.SetValue('')
+        self.campoNombre4.SetValue('')
+        self.campoDniA4.SetValue('')
+        self.campoDniB4.SetValue('')
+        self.campoNombre5.SetValue('')
+        self.campoDniA5.SetValue('')
+        self.campoDniB5.SetValue('')
 
-    def buscarJugador(self,event):
+    def seleccionarJugador(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton2.
         '''
@@ -135,9 +181,21 @@ class InterfazGrafica(wx.Frame):
             else:
                 indiceJugador=lis.buscar(infoNombre, infoDni)
         
+        self.campoNombre1.SetValue('')
+        self.campoDniA1.SetValue('')
+        self.campoDniB1.SetValue('')
         self.campoNombre2.SetValue('')
         self.campoDniA2.SetValue('')
         self.campoDniB2.SetValue('')
+        self.campoNombre3.SetValue('')
+        self.campoDniA3.SetValue('')
+        self.campoDniB3.SetValue('')
+        self.campoNombre4.SetValue('')
+        self.campoDniA4.SetValue('')
+        self.campoDniB4.SetValue('')
+        self.campoNombre5.SetValue('')
+        self.campoDniA5.SetValue('')
+        self.campoDniB5.SetValue('')
 
     def eliminarJugador(self,event):
         '''
@@ -147,22 +205,63 @@ class InterfazGrafica(wx.Frame):
         infoNombre=str(self.campoNombre3.GetValue())
         infoDni=str(self.campoDniA3.GetValue())+"-"+str(self.campoDniB3.GetValue())
         if infoNombre != ("") and infoDni != ("-"):
-            lis.eliminar(infoNombre, infoDni)
+            if lis.buscar(infoNombre, infoDni) == False:
+                pass
+            else:
+                lis.eliminar(infoNombre, infoDni)
         
         lis.imprimir()
+        self.campoNombre1.SetValue('')
+        self.campoDniA1.SetValue('')
+        self.campoDniB1.SetValue('')
+        self.campoNombre2.SetValue('')
+        self.campoDniA2.SetValue('')
+        self.campoDniB2.SetValue('')
         self.campoNombre3.SetValue('')
         self.campoDniA3.SetValue('')
         self.campoDniB3.SetValue('')
+        self.campoNombre4.SetValue('')
+        self.campoDniA4.SetValue('')
+        self.campoDniB4.SetValue('')
+        self.campoNombre5.SetValue('')
+        self.campoDniA5.SetValue('')
+        self.campoDniB5.SetValue('')
         
     def actualizarJugador(self,event):
         '''
         :event: El parametro event liga esta funcion con la interaccion con boton4.
         '''
         
-        
+        infoNombreViejo=str(self.campoNombre4.GetValue())
+        infoDniViejo=str(self.campoDniA4.GetValue())+"-"+str(self.campoDniB4.GetValue())
+        infoNombreNuevo=str(self.campoNombre5.GetValue())
+        infoDniNuevo=str(self.campoDniA5.GetValue())+"-"+str(self.campoDniB5.GetValue())
+        if infoNombreViejo != ("") and infoNombreViejo != ("-"):
+            if infoNombreNuevo != ("") and infoDniNuevo != ("-"):
+                if lis.buscar(infoNombreViejo, infoDniViejo) == False:
+                    pass
+                else:
+                    indiceJugadorViejo=lis.buscar(infoNombreViejo, infoDniViejo)
+                    lis.actualizar(indiceJugadorViejo, infoNombreNuevo, infoDniNuevo)
+            else:
+                pass
+        else:
+            pass
         
         lis.imprimir()
+        self.campoNombre1.SetValue('')
+        self.campoDniA1.SetValue('')
+        self.campoDniB1.SetValue('')
+        self.campoNombre2.SetValue('')
+        self.campoDniA2.SetValue('')
+        self.campoDniB2.SetValue('')
+        self.campoNombre3.SetValue('')
+        self.campoDniA3.SetValue('')
+        self.campoDniB3.SetValue('')
         self.campoNombre4.SetValue('')
         self.campoDniA4.SetValue('')
         self.campoDniB4.SetValue('')
+        self.campoNombre5.SetValue('')
+        self.campoDniA5.SetValue('')
+        self.campoDniB5.SetValue('')
         

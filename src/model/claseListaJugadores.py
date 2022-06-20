@@ -63,10 +63,10 @@ class ListaJugadores:
         else:
             lenNumMenosUno=self.getLen()-1
             for g in range(1,lenNumMenosUno,1):
-                infoDni=self.listaJugadores[g].getDniJugador()
                 infoNombre=self.listaJugadores[g].getNombreJugador()
+                infoDni=self.listaJugadores[g].getDniJugador()
                 infoPuntos=self.listaJugadores[g].getPuntuacion()
-                infoJugador=str(g)+".-"+str(infoDni)+"-"+str(infoNombre)+"-"+str(infoPuntos)
+                infoJugador=str(g)+".-"+str(infoNombre)+"/"+str(infoDni)+"/"+str(infoPuntos)
                 print(infoJugador)
  
     def buscar(self,nombreJugador,dniJugador): 
@@ -100,7 +100,14 @@ class ListaJugadores:
         if self.buscar(nombreJugador,dniJugador) == False: 
             return False 
         else:
-            indiceElementoEliminar=self.listaJugadores.buscar(nombreJugador,dniJugador)
+            indiceElementoEliminar=self.buscar(nombreJugador,dniJugador)
             self.listaJugadores[indiceElementoEliminar-1].setSiguiente(self.listaJugadores[indiceElementoEliminar+1])
             self.listaJugadores[indiceElementoEliminar+1].setAnterior(self.listaJugadores[indiceElementoEliminar-1])
-            self.listaJugadores.pop[indiceElementoEliminar]
+            self.listaJugadores.pop(indiceElementoEliminar)
+            
+    def actualizar(self,indiceElementoActualizar,nombreNuevo,dniNuevo):
+        if self.buscar(nombreNuevo,dniNuevo) == False:
+            self.listaJugadores[indiceElementoActualizar].setNombreJugador(nombreNuevo)
+            self.listaJugadores[indiceElementoActualizar].setDniJugador(dniNuevo) 
+        else:
+            return False
