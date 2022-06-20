@@ -13,11 +13,11 @@ columnas = 4
 
 class TestFrame(wx.Frame):
     def __init__(self,parent,title):     
-        frame=wx.Frame.__init__(self,parent=parent,title=title,size=(1100,800))
+        frame=wx.Frame.__init__(self,parent=parent,title=title,size=(500,700))
         panel=wx.Panel(self,-1)
         self.grid = wxgrid.Grid(panel, -1,size=(1100,800))
         self.grid.CreateGrid(filas,columnas)
-
+        self.grid.Position = (40,25)
         for i in range(0,columnas):
             for j in range(0,filas):
                 img = wx.Bitmap("cartapatra.jpg", wx.BITMAP_TYPE_ANY)

@@ -5,27 +5,28 @@ import random
 #si logramos eso estamos al otro lado 
 filas = 4
 columnas = 4
-tamaño= (1100,800)
+tamano= (500,700)
 class TestFrame(wx.Frame):
     def __init__(self,parent,title):
             '''
             :parent:
             :title:
             '''
-            frame=wx.Frame.__init__(self,parent=parent,title=title,size=tamaño)
+            frame=wx.Frame.__init__(self,parent=parent,title=title,size=tamano)
             panel=wx.Panel(self,-1)
-            self.grid = wxgrid.Grid(panel, -1,size=tamaño)
+            self.grid = wxgrid.Grid(panel, -1,size=tamano)
             self.grid.CreateGrid(filas,columnas)
+            #self.grid.Position = (40,25)
             matrizaux = []
             res = random.sample(range(1, 32), 8)
             res.extend(res)
             random.shuffle(res)
             matrizaux.append(res)
             self.Bind(wx.grid.EVT_GRID_CELL_LEFT_CLICK,self.click)
-            for c in matrizaux[0]:
-                self.img = wx.Bitmap("cardsColors/"+ str(c) + ".jpg", wx.BITMAP_TYPE_ANY)
-                self.img = self.scale_bitmap(self.img, 100, 150)
-                self.imageRenderer = MyImageRenderer(self.img)
+
+            self.img = wx.Bitmap("cardsColors/"+ str(1) + ".jpg", wx.BITMAP_TYPE_ANY)
+            self.img = self.scale_bitmap(self.img, 100, 150)
+            self.imageRenderer = MyImageRenderer(self.img)    
 
             self.Centre(True)
             self.Show()
