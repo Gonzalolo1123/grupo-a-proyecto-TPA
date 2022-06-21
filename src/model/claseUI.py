@@ -8,6 +8,7 @@ import wx
 from model.claseListaJugadores import ListaJugadores
 from controller.manejoUsuarios import manejoUsuarios
 
+# clase de interfaz grafica
 
 class InterfazGrafica(wx.Frame):  
     '''
@@ -286,5 +287,4 @@ class InterfazGrafica(wx.Frame):
             datoDeLista=self.lisDatos[u]
             self.listaJugadoresUI.Append(datoDeLista)
         manejoUsuarios.guardarUsuarios(self,self.lisDatos)
-        
-                
+                        

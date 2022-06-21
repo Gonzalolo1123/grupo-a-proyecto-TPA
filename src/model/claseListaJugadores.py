@@ -7,7 +7,7 @@ Created on 18-06-2022
 from model.claseNodo import Nodo
 from model.claseJugador import Jugador
 
-#clase lista de jugadores
+#clase lista jugadores
 #c
 class ListaJugadores: 
     def __init__(self): 

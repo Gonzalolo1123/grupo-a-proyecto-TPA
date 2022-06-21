@@ -3,6 +3,9 @@ Created on 09-05-2022
 
 @author: Dell
 '''
+
+# comentario
+
 from model.claseListaJugadores import ListaJugadores
 
 class manejoUsuarios:
