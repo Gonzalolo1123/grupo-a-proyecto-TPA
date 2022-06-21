@@ -15,6 +15,23 @@ class ListaJugadores:
         cabeza.setSiguiente(cola) 
         cola.setAnterior(cabeza) 
         self.listaJugadores=[cabeza, cola]
+        self.listaJugadoresDatos=[]
+        
+    def getListaJugadoresDatos(self):
+        return self.listaJugadoresDatos
+        
+    def actualizarListaDatos(self):
+        if self.esVacia == True: 
+            return False 
+        else:
+            lenNumMenosUno=self.getLen()-1
+            self.listaJugadoresDatos=[]
+            for g in range(1,lenNumMenosUno,1):
+                infoNombre=self.listaJugadores[g].getNombreJugador()
+                infoDni=self.listaJugadores[g].getDniJugador()
+                infoPuntos=self.listaJugadores[g].getPuntuacion()
+                infoJugador=str(g)+".-"+str(infoNombre)+"/"+str(infoDni)+"/"+str(infoPuntos)
+                self.listaJugadoresDatos.append(infoJugador)
         
     def getLen(self):
         return len(self.listaJugadores)
@@ -32,6 +49,7 @@ class ListaJugadores:
             lenNumMenosUno=self.getLen()-1
             for l in range(lenNumMenosUno,0,-1):
                 self.listaJugadores.eliminar(self.listaJugadores[l].getNombreJugador(),self.listaJugadores[l].getDniJugador())
+            self.actualizarListaDatos()
 
     def getCabeza(self): 
         return self.listaJugadores[0] 
@@ -56,6 +74,8 @@ class ListaJugadores:
 
             self.listaJugadores[lenNumMenosUno+1].setAnterior(self.listaJugadores[lenNumMenosUno])
             self.listaJugadores[lenNumMenosUno-1].setSiguiente(self.listaJugadores[lenNumMenosUno])
+            
+            self.actualizarListaDatos()
              
     def imprimir(self): 
         if self.esVacia == True: 
@@ -104,10 +124,12 @@ class ListaJugadores:
             self.listaJugadores[indiceElementoEliminar-1].setSiguiente(self.listaJugadores[indiceElementoEliminar+1])
             self.listaJugadores[indiceElementoEliminar+1].setAnterior(self.listaJugadores[indiceElementoEliminar-1])
             self.listaJugadores.pop(indiceElementoEliminar)
+            self.actualizarListaDatos()
             
     def actualizar(self,indiceElementoActualizar,nombreNuevo,dniNuevo):
         if self.buscar(nombreNuevo,dniNuevo) == False:
             self.listaJugadores[indiceElementoActualizar].setNombreJugador(nombreNuevo)
-            self.listaJugadores[indiceElementoActualizar].setDniJugador(dniNuevo) 
+            self.listaJugadores[indiceElementoActualizar].setDniJugador(dniNuevo)
+            self.actualizarListaDatos() 
         else:
             return False

@@ -7,8 +7,6 @@ Created on 09-05-2022
 import wx
 from model.claseListaJugadores import ListaJugadores
 
-lis=ListaJugadores()
-
 
 class InterfazGrafica(wx.Frame):  
     '''
@@ -23,10 +21,18 @@ class InterfazGrafica(wx.Frame):
         
         wx.Frame.__init__(self, parent, iden, "Jugadores")
         panel = wx.Panel(self)
+        self.lis=ListaJugadores()
+        
+        # lista de jugadores
+        
+        self.listaJugadoresUI = wx.ListBox(panel, pos = (210,90), size = (300,400), choices = [])
+        self.textoEstructuraLista = wx.StaticText(panel, pos = (210,62), label = "nombre del jugador / dni del jugador / puntuacion del jugador")
+        botonActualizarListaJugadoresUI = wx.Button(panel, label = "Actualizar lista", pos = (210, 30))
+        
 
         # boton 1
         
-        boton1 = wx.Button(panel, label = "Ingresar", pos = (10, 30))
+        boton1 = wx.Button(panel, label = "Ingresar Jugador", pos = (10, 30))
         
         # campo nombre 1
         
@@ -48,7 +54,7 @@ class InterfazGrafica(wx.Frame):
         
         # boton 2
         
-        boton2 = wx.Button(panel, label="Seleccionar", pos=(10, 150))
+        boton2 = wx.Button(panel, label="Seleccionar Jugador", pos=(10, 150))
         
         # campo nombre 2
         
@@ -70,7 +76,7 @@ class InterfazGrafica(wx.Frame):
         
         # boton 3
         
-        boton3 = wx.Button(panel, label="Eliminar", pos=(10, 270))
+        boton3 = wx.Button(panel, label="Eliminar Jugador", pos=(10, 270))
         
         # campo nombre 3
         
@@ -92,7 +98,7 @@ class InterfazGrafica(wx.Frame):
         
         # boton 4
         
-        boton4 = wx.Button(panel, label="Actualizar", pos=(10, 390))
+        boton4 = wx.Button(panel, label="Actualizar Jugador", pos=(10, 390))
         
         # campo nombre 4
         
@@ -137,6 +143,7 @@ class InterfazGrafica(wx.Frame):
         self.Bind(wx.EVT_BUTTON,self.seleccionarJugador,boton2)
         self.Bind(wx.EVT_BUTTON,self.eliminarJugador,boton3)
         self.Bind(wx.EVT_BUTTON,self.actualizarJugador,boton4)
+        self.Bind(wx.EVT_BUTTON,self.actualizarListaJugadoresUI,botonActualizarListaJugadoresUI)
         self.Show()
 
     def ingresarJugador(self,event):
@@ -147,11 +154,11 @@ class InterfazGrafica(wx.Frame):
         infoNombre=str(self.campoNombre1.GetValue())
         infoDni=str(self.campoDniA1.GetValue())+"-"+str(self.campoDniB1.GetValue())
         if infoNombre != ("") and infoDni != ("-"):
-            lis.ingresar(infoNombre, infoDni)
+            self.lis.ingresar(infoNombre, infoDni)
         else:
             pass
             
-        lis.imprimir()
+        self.lis.imprimir()
         self.campoNombre1.SetValue('')
         self.campoDniA1.SetValue('')
         self.campoDniB1.SetValue('')
@@ -176,10 +183,10 @@ class InterfazGrafica(wx.Frame):
         infoNombre=str(self.campoNombre2.GetValue())
         infoDni=str(self.campoDniA2.GetValue())+"-"+str(self.campoDniB2.GetValue())
         if infoNombre != ("") and infoDni != ("-"):
-            if lis.buscar(infoNombre, infoDni) == False:
+            if self.lis.buscar(infoNombre, infoDni) == False:
                 pass
             else:
-                indiceJugador=lis.buscar(infoNombre, infoDni)
+                indiceJugador=self.lis.buscar(infoNombre, infoDni)
         
         self.campoNombre1.SetValue('')
         self.campoDniA1.SetValue('')
@@ -205,12 +212,12 @@ class InterfazGrafica(wx.Frame):
         infoNombre=str(self.campoNombre3.GetValue())
         infoDni=str(self.campoDniA3.GetValue())+"-"+str(self.campoDniB3.GetValue())
         if infoNombre != ("") and infoDni != ("-"):
-            if lis.buscar(infoNombre, infoDni) == False:
+            if self.lis.buscar(infoNombre, infoDni) == False:
                 pass
             else:
-                lis.eliminar(infoNombre, infoDni)
+                self.lis.eliminar(infoNombre, infoDni)
         
-        lis.imprimir()
+        self.lis.imprimir()
         self.campoNombre1.SetValue('')
         self.campoDniA1.SetValue('')
         self.campoDniB1.SetValue('')
@@ -238,17 +245,17 @@ class InterfazGrafica(wx.Frame):
         infoDniNuevo=str(self.campoDniA5.GetValue())+"-"+str(self.campoDniB5.GetValue())
         if infoNombreViejo != ("") and infoNombreViejo != ("-"):
             if infoNombreNuevo != ("") and infoDniNuevo != ("-"):
-                if lis.buscar(infoNombreViejo, infoDniViejo) == False:
+                if self.lis.buscar(infoNombreViejo, infoDniViejo) == False:
                     pass
                 else:
-                    indiceJugadorViejo=lis.buscar(infoNombreViejo, infoDniViejo)
-                    lis.actualizar(indiceJugadorViejo, infoNombreNuevo, infoDniNuevo)
+                    indiceJugadorViejo=self.lis.buscar(infoNombreViejo, infoDniViejo)
+                    self.lis.actualizar(indiceJugadorViejo, infoNombreNuevo, infoDniNuevo)
             else:
                 pass
         else:
             pass
         
-        lis.imprimir()
+        self.lis.imprimir()
         self.campoNombre1.SetValue('')
         self.campoDniA1.SetValue('')
         self.campoDniB1.SetValue('')
@@ -264,4 +271,17 @@ class InterfazGrafica(wx.Frame):
         self.campoNombre5.SetValue('')
         self.campoDniA5.SetValue('')
         self.campoDniB5.SetValue('')
+        
+    def actualizarListaJugadoresUI(self,event):
+        '''
+        :event: El parametro event liga esta funcion con la interaccion con botonActualizarListaJugadoresUI.
+        '''
+        
+        self.listaJugadoresUI.Clear()
+        self.lis.actualizarListaDatos()
+        self.lisDatos=self.lis.getListaJugadoresDatos()
+        conAgregarDatos=len(self.lisDatos)
+        for u in range(0,conAgregarDatos,1):
+            datoDeLista=self.lisDatos[u]
+            self.listaJugadoresUI.Append(datoDeLista)
         
