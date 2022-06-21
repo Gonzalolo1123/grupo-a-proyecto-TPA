@@ -40,9 +40,3 @@ class manejoUsuarios:
             listaRecuperada.actualizarPuntuacion(indiceJugadorRecuperado,datosJugadorRecuperados[2])
         archivo.close()
         return listaRecuperada
-
-listaTest=["1.-sergio/2020-1/666","2.-nacho/2121-2/222","3.-robertito/80080012-5/0"]
-a=manejoUsuarios()
-a.guardarUsuarios(listaTest)
-print("espacio")
-a.recuperarUsuarios()
