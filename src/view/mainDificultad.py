@@ -5,9 +5,13 @@ Created on 09-05-2022
 '''
 
 import wx
-from model.clasebD import botonesDificultad
-
-if __name__=='__main__':
-    app = wx.App()
-    fr = botonesDificultad(None, "Dificultad" )
-    app. MainLoop()
+from model.clasebD import Button
+def main(): 
+    app = wx.App() 
+    ex = Button(None) 
+    ex.Show() 
+    app.MainLoop() 
+  
+  
+if __name__ == '__main__': 
+    main() 

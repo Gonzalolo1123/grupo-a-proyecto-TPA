@@ -5,20 +5,31 @@ Created on 2 jun. 2022
 '''
 import wx
 
-class botonesDificultad(wx.Frame):
+class Button(wx.Frame): 
     '''
     Esta es la clase de los botones de dificultad
     '''
-    def __init__(self,parent,title):
-        '''
-        :parent: Es el padre de la ventana.
-        :title: Es el nombre de la ventana.
-        '''
-        
-        wx. Frame.__init__(self, parent,title=title, size=(300,250))
-        self.boton1 = wx.Button(self, 0, "Facil", size=(100, 50), pos=(100,10))
-        self.boton2 = wx.Button(self, 0, "Medio", size=(100, 50), pos=(100,70))
-        self.boton3 = wx.Button(self, 0, "Dificil", size=(100, 50), pos=(100,130))
+  
+    def __init__(self, *args, **kwargs):
 
-        self.Centre(True)
-        self.Show()
+        
+        '''
+        :args: permiten pasar un número variable de argumentos a una funcion.
+        :kwargs: permite pasar argumentos de longitud variable asociados con un nombre.
+        '''
+  
+        super(Button, self).__init__(*args, **kwargs) 
+        self.InitUI() 
+        
+
+    def InitUI(self): 
+        self.pnl = wx.Panel(self) 
+  
+        self.st = wx.Button(self.pnl, id = 1, label ="Button", pos =(120, 70), 
+                                          size =(300, 40),  name ="Vamo a juga") 
+        self.st.SetSize((100, 50)) 
+  
+        self.SetSize((350, 250)) 
+        self.SetTitle('wx.Button') 
+        self.Centre() 
+  
