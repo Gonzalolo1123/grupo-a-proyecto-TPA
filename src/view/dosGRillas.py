@@ -38,23 +38,19 @@ class TestFrame(wx.Frame):
         c = 0
         for f in range(0, filas):
             for a in range(0, columnas):
-                if c <= 4:
+                if c <= 3:
                     img2 = wx.Bitmap("cardsColors/" + str(matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
                     img2 = self.scale_bitmap(img2, 100, 150)
                     b = 0
-                if 8 >= c >= 5:
+                if 7 >= c >= 4:
                     img2 = wx.Bitmap("cardsColors/" + str(matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
                     img2 = self.scale_bitmap(img2, 100, 150)
                     b = 1
-                if 12 >= c >= 9:
+                if 11 >= c >= 8:
                     img2 = wx.Bitmap("cardsColors/" + str(matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
                     img2 = self.scale_bitmap(img2, 100, 150)
                     b = 2
-                if 16 > c >= 13:
-                    img2 = wx.Bitmap("cardsColors/" + str(matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
-                    img2 = self.scale_bitmap(img2, 100, 150)
-                    b = 3
-                if a == 3 and f == 3:
+                if 15 > c >= 12:
                     img2 = wx.Bitmap("cardsColors/" + str(matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
                     img2 = self.scale_bitmap(img2, 100, 150)
                     b = 3
