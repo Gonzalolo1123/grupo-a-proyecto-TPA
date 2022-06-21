@@ -6,6 +6,7 @@ Created on 09-05-2022
 
 import wx
 from model.claseListaJugadores import ListaJugadores
+from controller.manejoUsuarios import manejoUsuarios
 
 
 class InterfazGrafica(wx.Frame):  
@@ -21,7 +22,7 @@ class InterfazGrafica(wx.Frame):
         
         wx.Frame.__init__(self, parent, iden, "Jugadores")
         panel = wx.Panel(self)
-        self.lis=ListaJugadores()
+        self.lis=manejoUsuarios.recuperarUsuarios(self)
         
         # lista de jugadores
         
@@ -284,4 +285,6 @@ class InterfazGrafica(wx.Frame):
         for u in range(0,conAgregarDatos,1):
             datoDeLista=self.lisDatos[u]
             self.listaJugadoresUI.Append(datoDeLista)
+        manejoUsuarios.guardarUsuarios(self,self.lisDatos)
+        
                 

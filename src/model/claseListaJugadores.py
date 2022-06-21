@@ -134,3 +134,7 @@ class ListaJugadores:
             self.actualizarListaDatos() 
         else:
             return False
+        
+    def actualizarPuntuacion(self,indiceElementoActualizar,puntuacionNueva):
+        self.listaJugadores[indiceElementoActualizar].setPuntuacion(puntuacionNueva)
+        self.actualizarListaDatos()
