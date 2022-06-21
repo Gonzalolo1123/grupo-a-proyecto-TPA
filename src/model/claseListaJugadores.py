@@ -8,6 +8,7 @@ from model.claseNodo import Nodo
 from model.claseJugador import Jugador
 
 #clase lista de jugadores
+#c
 class ListaJugadores: 
     def __init__(self): 
         cabeza=Nodo() 

@@ -284,4 +284,4 @@ class InterfazGrafica(wx.Frame):
         for u in range(0,conAgregarDatos,1):
             datoDeLista=self.lisDatos[u]
             self.listaJugadoresUI.Append(datoDeLista)
-        
+                
