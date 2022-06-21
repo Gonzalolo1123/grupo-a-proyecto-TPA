@@ -4,7 +4,6 @@ import random
 
 filas = 4
 columnas = 4
-tamaño = (1400, 700)
 
 
 class TestFrame(wx.Frame):
@@ -18,7 +17,7 @@ class TestFrame(wx.Frame):
         res.extend(res)
         random.shuffle(res)
         matrizaux.append(res)
-        frame = wx.Frame.__init__(self, parent=parent, title=title, size=tamaño)
+        frame = wx.Frame.__init__(self, parent=parent, title=title, size=(1400,700))
         panel = wx.Panel(self, -1)
         self.grid = wxgrid.Grid(panel, -1, size=(700, 700))
         self.grid.CreateGrid(filas, columnas)
@@ -29,7 +28,7 @@ class TestFrame(wx.Frame):
         # Grilla 1
         for i in range(0, columnas):
             for j in range(0, filas):
-                img1 = wx.Bitmap("backCard.jpg", wx.BITMAP_TYPE_ANY)
+                img1 = wx.Bitmap("cartapatra.jpg", wx.BITMAP_TYPE_ANY)
                 img1 = self.scale_bitmap(img1, 100, 150)
                 imageRenderer1 = MyImageRenderer(img1)
                 self.grid.SetCellRenderer(j, i, imageRenderer1)
