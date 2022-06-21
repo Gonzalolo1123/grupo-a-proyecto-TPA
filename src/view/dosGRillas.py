@@ -3,7 +3,7 @@ import wx.grid as wxgrid
 import random
 filas = 4
 columnas = 4
-tamaño= (1400,700)
+tamano= (1400,700)
 class TestFrame(wx.Frame):
     def __init__(self,parent,title):
             '''
@@ -15,7 +15,7 @@ class TestFrame(wx.Frame):
             res.extend(res)
             random.shuffle(res)
             matrizaux.append(res)
-            frame=wx.Frame.__init__(self,parent=parent,title=title,size=tamaño)
+            frame=wx.Frame.__init__(self,parent=parent,title=title,size=tamano)
             panel=wx.Panel(self,-1)
             self.grid = wxgrid.Grid(panel, -1,size=(700,700))
             self.grid.CreateGrid(filas,columnas)
