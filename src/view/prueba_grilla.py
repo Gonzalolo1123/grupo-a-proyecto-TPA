@@ -30,6 +30,17 @@ class TestFrame(wx.Frame):
         self.grid = wxgrid.Grid(panel, -1, size=(700, 700))
         self.grid.CreateGrid(filas, columnas)
         self.grid.Position = (40, 25)
+       
+        # Grilla 1
+        for i in range(0, columnas):
+            for j in range(0, filas):
+                img1 = wx.Bitmap("backCard.jpg", wx.BITMAP_TYPE_ANY)
+                img1 = scale_bitmap(img1, 100, 150)
+                imageRenderer1 = MyImageRenderer(img1)
+                self.grid.SetCellRenderer(j, i, imageRenderer1)
+                self.grid.SetColSize(i, img1.GetWidth() + 2)
+                self.grid.SetRowSize(j, img1.GetHeight() + 2)
+                
         # Grilla 2
         c = 0
         for f in range(0, filas):
@@ -72,12 +83,10 @@ class TestFrame(wx.Frame):
         if self.cont==1:
             self.click1.append(self.fil)
             self.click1.append(self.col)
-            print("click1", self.click1)
             
         if self.cont==2:
             self.click2.append(self.fil)
             self.click2.append(self.col)
-            print("Click2",self.click2)
             self.cont=0
             
             # COMPARACION POSICIONES CLICK
