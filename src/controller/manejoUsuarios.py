@@ -8,7 +8,7 @@ Created on 09-05-2022
 
 from model.claseListaJugadores import ListaJugadores
 
-class manejoUsuarios:
+class ManejoUsuarios:
     
     def __init__(self):
         pass

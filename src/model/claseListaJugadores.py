@@ -10,11 +10,11 @@ from model.claseJugador import Jugador
 #clase lista jugadores
 #adfd
 class ListaJugadores: 
-    def __init__(self): 
-        cabeza=Nodo() 
-        cola=Nodo() 
-        cabeza.setSiguiente(cola) 
-        cola.setAnterior(cabeza) 
+    def __init__(self):
+        cabeza=Nodo()
+        cola=Nodo()
+        cabeza.setSiguiente(cola)
+        cola.setAnterior(cabeza)
         self.listaJugadores=[cabeza, cola]
         self.listaJugadoresDatos=[]
         
