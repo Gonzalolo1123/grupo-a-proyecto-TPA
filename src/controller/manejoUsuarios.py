@@ -4,7 +4,7 @@ Created on 09-05-2022
 @author: Dell
 '''
 
-# adsfda
+# sod
 
 from model.claseListaJugadores import ListaJugadores
 

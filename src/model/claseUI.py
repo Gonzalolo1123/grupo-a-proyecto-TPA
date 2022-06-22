@@ -9,7 +9,7 @@ from model.claseListaJugadores import ListaJugadores
 from controller.manejoUsuarios import manejoUsuarios
 
 # clase de interfaz grafica
-# asdf
+# adfgf
 
 class InterfazGrafica(wx.Frame):  
     '''
