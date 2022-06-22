@@ -14,10 +14,14 @@ def scale_bitmap(bitmap, width, height):
 
 
 class TestFrame(wx.Frame):
+    
+    '''
+    Esta clase representa la interfaz grafica de la grilla.
+    '''
     def __init__(self, parent, title):
         '''
-        :parent:
-        :title:
+        :parent: Es el padre de la Ventana.
+        :title: Es el titulo de la Ventana.
         '''
         self.fil = None
         self.col = None
@@ -36,7 +40,6 @@ class TestFrame(wx.Frame):
         self.grid.Position = (40, 25)
         grid.Position = (40, 25)
 
-        # grid.Position = (701, 0)
         # Grilla 1
         for i in range(0, columnas):
             for j in range(0, filas):
