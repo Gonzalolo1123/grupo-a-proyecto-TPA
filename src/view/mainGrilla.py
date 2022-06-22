@@ -75,7 +75,7 @@ class TestFrame(wx.Frame):
                 grid.SetColSize(a, img2.GetWidth() + 2)
                 grid.SetRowSize(b, img2.GetHeight() + 2)
 
-            self.Bind(wx.grid.EVT_GRID_CELL_LEFT_CLICK, self.click)
+            self.Bind(wxgrid.EVT_GRID_CELL_LEFT_CLICK, self.click)
             self.Centre(True)
             self.Show()
             self.grid.SetRowLabelSize(0)
@@ -115,9 +115,9 @@ class TestFrame(wx.Frame):
             self.click1 = []
             self.click2 = []
 
-class MyImageRenderer(wx.grid.GridCellRenderer):
+class MyImageRenderer(wxgrid.GridCellRenderer):
     def __init__(self, img):
-        wx.grid.GridCellRenderer.__init__(self)
+        wxgrid.GridCellRenderer.__init__(self)
         self.img = img
 
     def Draw(self, grid, attr, dc, rect, row, col, isSelected):

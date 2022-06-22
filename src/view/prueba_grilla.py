@@ -2,7 +2,6 @@ import wx
 import wx.grid as wxgrid
 import random
 from view.mainGrilla import scale_bitmap
-#cambio
 filas = 4
 columnas = 4
 
@@ -66,7 +65,7 @@ class TestFrame(wx.Frame):
                 self.grid.SetRowSize(b, img2.GetHeight() + 2)
             
             self.grid.EnableEditing(False)
-            self.Bind(wx.grid.EVT_GRID_CELL_LEFT_CLICK,self.click)
+            self.Bind(wxgrid.EVT_GRID_CELL_LEFT_CLICK,self.click)
             self.Centre(True)
             self.Show()
             self.grid.SetRowLabelSize(0)
