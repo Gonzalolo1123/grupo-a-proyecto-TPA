@@ -1,6 +1,7 @@
 import wx
 import wx.grid as wxgrid
 import random
+from view.mainGrilla import scale_bitmap
 #cambio
 filas = 4
 columnas = 4
@@ -20,10 +21,7 @@ class TestFrame(wx.Frame):
         random.shuffle(res)
         self.matrizaux.append(res)
         self.M = [self.matrizaux[0][columnas*i : columnas*(i+1)] for i in range(filas)]
-        for i in range(len(self.M)):
-            for k in range(len(self.M)):
-                print("ckjgkadjbkjcd",self.M[i][k])
-            
+
 
         frame = wx.Frame.__init__(self, parent=parent, title=title, size=(500,700))
         panel = wx.Panel(self, -1)
@@ -105,9 +103,9 @@ class TestFrame(wx.Frame):
         image = image.Scale(width, height, wx.IMAGE_QUALITY_HIGH)
         result = wx.BitmapFromImage(image)
         return result
-class MyImageRenderer(wx.grid.GridCellRenderer):
+class MyImageRenderer(wxgrid.GridCellRenderer):
     def __init__(self, img):
-        wx.grid.GridCellRenderer.__init__(self)
+        wxgrid.GridCellRenderer.__init__(self)
         self.img = img
     def Draw(self, grid, attr, dc, rect, row, col, isSelected):
         image = wx.MemoryDC()

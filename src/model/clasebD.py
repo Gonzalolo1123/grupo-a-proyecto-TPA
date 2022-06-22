@@ -25,11 +25,11 @@ class Button(wx.Frame):
     def InitUI(self): 
         self.pnl = wx.Panel(self) 
   
-        self.st = wx.Button(self.pnl, id = 1, label ="Button", pos =(120, 70), 
+        self.st = wx.Button(self.pnl, id = 1, label ="Jugar", pos =(120, 70), 
                                           size =(300, 40),  name ="Vamo a juga") 
         self.st.SetSize((100, 50)) 
   
         self.SetSize((350, 250)) 
-        self.SetTitle('wx.Button') 
+        self.SetTitle('Inicio') 
         self.Centre() 
   
