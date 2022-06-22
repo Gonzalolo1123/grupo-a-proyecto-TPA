@@ -1,50 +1,80 @@
 import wx
 import wx.grid as wxgrid
 import random
-#en este archivo lo que estoy intentando es hacer funcionar el click para agregar una imagen en la casilla que se seleccione
-#si logramos eso estamos al otro lado 
+
 filas = 4
 columnas = 4
-tamano= (500,700)
+
 class TestFrame(wx.Frame):
-    def __init__(self,parent,title):
-            '''
-            :parent:
-            :title:
-            '''
-            frame=wx.Frame.__init__(self,parent=parent,title=title,size=tamano)
-            panel=wx.Panel(self,-1)
-            self.grid = wxgrid.Grid(panel, -1,size=tamano)
-            self.grid.CreateGrid(filas,columnas)
-            #self.grid.Position = (40,25)
-            matrizaux = []
-            res = random.sample(range(1, 32), 8)
-            res.extend(res)
-            random.shuffle(res)
-            matrizaux.append(res)
+    def __init__(self, parent, title):
+        '''
+        :parent:
+        :title:
+        '''
+        self.click1=[]
+        self.click2=[]
+        self.cont=0
+        self.matrizaux = []
+        res = random.sample(range(1, 32), 8)
+        res.extend(res)
+        random.shuffle(res)
+        self.matrizaux.append(res)
+        frame = wx.Frame.__init__(self, parent=parent, title=title, size=(500,700))
+        panel = wx.Panel(self, -1)
+        self.grid = wxgrid.Grid(panel, -1, size=(700, 700))
+        self.grid.CreateGrid(filas, columnas)
+        self.grid.Position = (40, 25)
+        # Grilla 2
+        c = 0
+        for f in range(0, filas):
+            for a in range(0, columnas):
+                if c <= 3:
+                    img2 = wx.Bitmap("cardsColors/" + str(self.matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
+                    img2 = self.scale_bitmap(img2, 100, 150)
+                    b = 0
+                if 7 >= c >= 4:
+                    img2 = wx.Bitmap("cardsColors/" + str(self.matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
+                    img2 = self.scale_bitmap(img2, 100, 150)
+                    b = 1
+                if 11 >= c >= 8:
+                    img2 = wx.Bitmap("cardsColors/" + str(self.matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
+                    img2 = self.scale_bitmap(img2, 100, 150)
+                    b = 2
+                if 15 >= c >= 12:
+                    img2 = wx.Bitmap("cardsColors/" + str(self.matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
+                    img2 = self.scale_bitmap(img2, 100, 150)
+                    b = 3
+                c += 1
+                imageRenderer2 = MyImageRenderer(img2)
+                self.grid.SetCellRenderer(b, a, imageRenderer2)
+                self.grid.SetColSize(a, img2.GetWidth() + 2)
+                self.grid.SetRowSize(b, img2.GetHeight() + 2)
+
             self.Bind(wx.grid.EVT_GRID_CELL_LEFT_CLICK,self.click)
-
-            self.img = wx.Bitmap("cardsColors/"+ str(1) + ".jpg", wx.BITMAP_TYPE_ANY)
-            self.img = self.scale_bitmap(self.img, 100, 150)
-            self.imageRenderer = MyImageRenderer(self.img)    
-
             self.Centre(True)
             self.Show()
             self.grid.SetRowLabelSize(0)
             self.grid.SetColLabelSize(0)
+        print(self.matrizaux[0])
 
     def click(self, event):
-        col=event.GetCol()
-        fil=event.GetRow()
-        self.grid.SetCellRenderer(fil, col, self.imageRenderer)
-        self.grid.SetColSize(fil, self.img.GetWidth() + 2)
-        self.grid.SetRowSize(col, self.img.GetHeight() + 2)
+        self.col = event.GetCol()
+        self.fil = event.GetRow()
+        self.cont+=1
+        if self.cont==1:
+            self.click1.append(self.fil)
+            self.click1.append(self.col)
+            print("click1", self.click1)
+        if self.cont==2:
+            self.click2.append(self.fil)
+            self.click2.append(self.col)
+            print("Click2",self.click2)
+
     def scale_bitmap(self,bitmap, width, height):
         image = wx.ImageFromBitmap(bitmap)
         image = image.Scale(width, height, wx.IMAGE_QUALITY_HIGH)
         result = wx.BitmapFromImage(image)
         return result
-
 class MyImageRenderer(wx.grid.GridCellRenderer):
     def __init__(self, img):
         wx.grid.GridCellRenderer.__init__(self)
@@ -66,7 +96,6 @@ class MyImageRenderer(wx.grid.GridCellRenderer):
         if height > rect.height-2:
             height = rect.height-2
         dc.Blit(rect.x+1, rect.y+1, width, height, image, 0, 0, wx.COPY, True)
-
 if __name__=='__main__':
     app = wx.App()
     fr = TestFrame(None, "Test Grid")
