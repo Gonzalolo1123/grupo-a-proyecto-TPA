@@ -1,7 +1,7 @@
 import wx
 import wx.grid as wxgrid
 import random
-
+#cambio
 filas = 4
 columnas = 4
 
