@@ -64,7 +64,7 @@ class TestFrame(wx.Frame):
             self.grid.SetColLabelSize(0)
         print(self.M)
         
-        # FIN COMPARAR.
+        # FIN COMPARAR.z
 
     def click(self, event):
         self.col = event.GetCol()
