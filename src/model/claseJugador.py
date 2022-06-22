@@ -8,7 +8,15 @@ from model.claseNodo import Nodo
 
 #clase jugador
 class Jugador(Nodo):
+    '''
+    Esta es la clase del Jugador
+    '''
+    
     def __init__(self, siguiente=None, anterior=None, nombreJugador="nom", dniJugador="dni", puntuacion=0):
+        '''
+        :event: El parametro event liga esta funcion con la interaccion con botonActualizarListaJugadoresUI.
+        '''
+        
         super().__init__(siguiente=None,anterior=None)
         self.nombreJugador=nombreJugador
         self.dniJugador=dniJugador
