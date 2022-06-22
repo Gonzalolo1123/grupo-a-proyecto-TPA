@@ -20,7 +20,11 @@ class TestFrame(wx.Frame):
         random.shuffle(res)
         self.matrizaux.append(res)
         self.M = [self.matrizaux[0][columnas*i : columnas*(i+1)] for i in range(filas)]
-        
+        for i in range(len(self.M)):
+            for k in range(len(self.M)):
+                print("ckjgkadjbkjcd",self.M[i][k])
+            
+
         frame = wx.Frame.__init__(self, parent=parent, title=title, size=(500,700))
         panel = wx.Panel(self, -1)
         self.grid = wxgrid.Grid(panel, -1, size=(700, 700))
@@ -51,7 +55,8 @@ class TestFrame(wx.Frame):
                 self.grid.SetCellRenderer(b, a, imageRenderer2)
                 self.grid.SetColSize(a, img2.GetWidth() + 2)
                 self.grid.SetRowSize(b, img2.GetHeight() + 2)
-
+            
+            self.grid.EnableEditing(False)
             self.Bind(wx.grid.EVT_GRID_CELL_LEFT_CLICK,self.click)
             self.Centre(True)
             self.Show()
@@ -59,27 +64,6 @@ class TestFrame(wx.Frame):
             self.grid.SetColLabelSize(0)
         print(self.M)
         
-        # PARTE COMPARAR
-        self.elementosComparados=[]
-        self.coordenadasElementosIguales=[]
-        longitudMatriz=len(self.M)
-
-        for j in range(0,longitudMatriz,1):
-            for k in range(0,longitudMatriz,1):
-                for u in range(0,longitudMatriz,1):
-                    for h in range(0,longitudMatriz,1):
-                        if str(self.M[j][k]) in self.elementosComparados:
-                            pass
-                        else:
-                            if self.M[j][k] == self.M[u][h] and j != u and k != h:
-                                self.elementosComparados.append(str(self.M[j][k]))
-                                coordIguales1=str(j)+str(k)+str(u)+str(h)
-                                coordIguales2=str(u)+str(h)+str(j)+str(k)
-                                self.coordenadasElementosIguales.append(coordIguales1)
-                                self.coordenadasElementosIguales.append(coordIguales2)
-
-                            else:
-                                pass
         # FIN COMPARAR
 
     def click(self, event):
@@ -98,8 +82,8 @@ class TestFrame(wx.Frame):
             self.cont=0
             
             # COMPARACION POSICIONES CLICK
-            coordComparar=str(self.click1[0])+str(self.click1[1])+str(self.click2[0])+str(self.click2[1])
-            if str(coordComparar) in self.coordenadasElementosIguales:
+            
+            if self.M[self.click1[0]][self.click1[1]] == self.M[self.click2[0]][self.click2[1]]:
                 print("iguales")
             else:
                 print("diferentes")
