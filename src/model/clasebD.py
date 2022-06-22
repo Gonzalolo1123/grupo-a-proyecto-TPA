@@ -14,7 +14,7 @@ class Button(wx.Frame):
 
         
         '''
-        :args: permiten pasar un número variable de argumentos a una funcion.
+        :args: permiten pasar un numero variable de argumentos a una funcion.
         :kwargs: permite pasar argumentos de longitud variable asociados con un nombre.
         '''
   
