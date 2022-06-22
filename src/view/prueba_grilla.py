@@ -19,6 +19,8 @@ class TestFrame(wx.Frame):
         res.extend(res)
         random.shuffle(res)
         self.matrizaux.append(res)
+        self.M = [self.matrizaux[0][columnas*i : columnas*(i+1)] for i in range(filas)]
+        
         frame = wx.Frame.__init__(self, parent=parent, title=title, size=(500,700))
         panel = wx.Panel(self, -1)
         self.grid = wxgrid.Grid(panel, -1, size=(700, 700))
@@ -55,7 +57,30 @@ class TestFrame(wx.Frame):
             self.Show()
             self.grid.SetRowLabelSize(0)
             self.grid.SetColLabelSize(0)
-        print(self.matrizaux[0])
+        print(self.M)
+        
+        # PARTE COMPARAR
+        self.elementosComparados=[]
+        self.coordenadasElementosIguales=[]
+        longitudMatriz=len(self.M)
+
+        for j in range(0,longitudMatriz,1):
+            for k in range(0,longitudMatriz,1):
+                for u in range(0,longitudMatriz,1):
+                    for h in range(0,longitudMatriz,1):
+                        if str(self.M[j][k]) in self.elementosComparados:
+                            pass
+                        else:
+                            if self.M[j][k] == self.M[u][h] and j != u and k != h:
+                                self.elementosComparados.append(str(self.M[j][k]))
+                                coordIguales1=str(j)+str(k)+str(u)+str(h)
+                                coordIguales2=str(u)+str(h)+str(j)+str(k)
+                                self.coordenadasElementosIguales.append(coordIguales1)
+                                self.coordenadasElementosIguales.append(coordIguales2)
+
+                            else:
+                                pass
+        # FIN COMPARAR
 
     def click(self, event):
         self.col = event.GetCol()
@@ -65,10 +90,23 @@ class TestFrame(wx.Frame):
             self.click1.append(self.fil)
             self.click1.append(self.col)
             print("click1", self.click1)
+            
         if self.cont==2:
             self.click2.append(self.fil)
             self.click2.append(self.col)
             print("Click2",self.click2)
+            self.cont=0
+            
+            # COMPARACION POSICIONES CLICK
+            coordComparar=str(self.click1[0])+str(self.click1[1])+str(self.click2[0])+str(self.click2[1])
+            if str(coordComparar) in self.coordenadasElementosIguales:
+                print("iguales")
+            else:
+                print("diferentes")
+            # FIN POSICIONES CLICK
+            
+            self.click1=[]
+            self.click2=[]
 
     def scale_bitmap(self,bitmap, width, height):
         image = wx.ImageFromBitmap(bitmap)
