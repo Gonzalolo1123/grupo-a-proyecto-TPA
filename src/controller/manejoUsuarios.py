@@ -9,11 +9,16 @@ Created on 09-05-2022
 from model.claseListaJugadores import ListaJugadores
 
 class ManejoUsuarios:
-    
+    '''
+    Esta es la clase que guarda y crea listas de jugadores.
+    '''
     def __init__(self):
         pass
     
     def guardarUsuarios(self,listaDatosGuardar):
+        '''
+        :listaDatosGuardar: Es la lista de los datos de los jugadores.
+        '''
         archivo=open("usuariosGuardados.txt","w")
         for k in range(0,len(listaDatosGuardar),1):
             archivo.write(listaDatosGuardar[k]+"\n")

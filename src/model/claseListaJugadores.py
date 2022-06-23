@@ -8,8 +8,10 @@ from model.claseNodo import Nodo
 from model.claseJugador import Jugador
 
 #clase lista jugadores
-#adfd
 class ListaJugadores: 
+    '''
+    Esta es la clase de la lista de jugadores.
+    '''
     def __init__(self):
         cabeza=Nodo()
         cola=Nodo()
@@ -61,7 +63,11 @@ class ListaJugadores:
         else: 
             return self.listaJugadores[1] 
 
-    def ingresar(self,nombreJugador,dniJugador): 
+    def ingresar(self,nombreJugador,dniJugador):
+        '''
+        :nombreJugador: Es el nombre del jugador a ser ingresado.
+        :dniJugador: Es el dni del jugador a ser ingresado.
+        ''' 
         if self.buscar(nombreJugador,dniJugador) == True: 
             return False 
         else:
@@ -91,6 +97,10 @@ class ListaJugadores:
                 print(infoJugador)
  
     def buscar(self,nombreJugador,dniJugador): 
+        '''
+        :nombreJugador: Es el nombre del jugador a ser buscado.
+        :dniJugador: Es el dni del jugador a ser buscado.
+        '''
         if self.esVacia == True:
             return False
         else: 
@@ -105,6 +115,10 @@ class ListaJugadores:
                         return False
 
     def buscarPrevio(self,nombreJugador,dniJugador): 
+        '''
+        :nombreJugador: Es el nombre del jugador cuyo predecesor se busca.
+        :dniJugador: Es el dni del jugador cuyo predecesor se busca.
+        '''
         if self.esVacia == True: 
             return False
         else: 
@@ -118,6 +132,10 @@ class ListaJugadores:
                     return False 
 
     def eliminar(self,nombreJugador,dniJugador): 
+        '''
+        :nombreJugador: Es el nombre del jugador a ser eliminado.
+        :dniJugador: Es el dni del jugador a ser eliminado.
+        '''
         if self.buscar(nombreJugador,dniJugador) == False: 
             return False 
         else:
@@ -128,6 +146,11 @@ class ListaJugadores:
             self.actualizarListaDatos()
             
     def actualizar(self,indiceElementoActualizar,nombreNuevo,dniNuevo):
+        '''
+        :indiceElementoActualizar: Es el indice del elemento que va a ser actualizado en la lista doblemente enlazada.
+        :nombreNuevo: Es el nuevo nombre del jugador.
+        :dniNuevo: Es el nuevo nombre del jugador.
+        '''
         if self.buscar(nombreNuevo,dniNuevo) == False:
             self.listaJugadores[indiceElementoActualizar].setNombreJugador(nombreNuevo)
             self.listaJugadores[indiceElementoActualizar].setDniJugador(dniNuevo)
@@ -136,5 +159,9 @@ class ListaJugadores:
             return False
         
     def actualizarPuntuacion(self,indiceElementoActualizar,puntuacionNueva):
+        '''
+        :indiceElementoActualizar: Es el indice del elemento que va a ser actualizado en la lista doblemente enlazada.
+        :puntuacionNueva: Es la nueva puntuacion del jugador.
+        '''
         self.listaJugadores[indiceElementoActualizar].setPuntuacion(puntuacionNueva)
         self.actualizarListaDatos()

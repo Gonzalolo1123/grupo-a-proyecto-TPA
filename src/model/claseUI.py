@@ -9,11 +9,10 @@ from model.claseListaJugadores import ListaJugadores
 from controller.manejoUsuarios import ManejoUsuarios
 
 # clase de interfaz grafica
-# adfgf
 
 class InterfazGrafica(wx.Frame):  
     '''
-    Esta clase es la interfaz grafica
+    Esta clase es la interfaz grafica.
     '''
     def __init__(self, parent, iden):
         
@@ -22,8 +21,10 @@ class InterfazGrafica(wx.Frame):
         :id: Es el identificador de la ventana. Puede tomar un valor de -1 para indicar un valor predeterminado.
         '''
         
-        wx.Frame.__init__(self, parent, iden, "Jugadores")
+        wx.Frame.__init__(self, parent, iden, "Jugadores",size=(600,700))
+    
         panel = wx.Panel(self)
+        
         self.lis=ManejoUsuarios.recuperarUsuarios(self)
         
         # lista de jugadores
@@ -148,6 +149,7 @@ class InterfazGrafica(wx.Frame):
         self.Bind(wx.EVT_BUTTON,self.actualizarJugador,boton4)
         self.Bind(wx.EVT_BUTTON,self.actualizarListaJugadoresUI,botonActualizarListaJugadoresUI)
         self.Show()
+        self.Centre()
 
     def ingresarJugador(self,event):
         '''
