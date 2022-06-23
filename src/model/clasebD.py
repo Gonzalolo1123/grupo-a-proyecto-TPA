@@ -6,7 +6,7 @@ Created on 2 jun. 2022
 import wx
 from view import mainGrilla
 from controller.controller import controller
-
+from view.mainGrilla import Grilla
 class Button(wx.Frame): 
     '''
     Esta es la clase de los botones de dificultad
@@ -14,7 +14,7 @@ class Button(wx.Frame):
   
     def __init__(self, *args, **kwargs):
 
-        
+        self.grilla=Grilla
         '''
         :args: permiten pasar un numero variable de argumentos a una funcion.
         :kwargs: permite pasar argumentos de longitud variable asociados con un nombre.
@@ -40,4 +40,4 @@ class Button(wx.Frame):
         self.Centre()
          
     def Juego(self,event):
-        
+        self.grilla
