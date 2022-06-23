@@ -11,8 +11,8 @@ columnas = 4
 class TestFrame(wx.Frame):
     def __init__(self, parent, title):
         '''
-        :parent:
-        :title:
+        :parent: Es el padre de la ventana.
+        :title: Es el titulo de la ventana.
         '''
         self.click1 = []
         self.click2 = []
@@ -45,6 +45,7 @@ class TestFrame(wx.Frame):
         for f in range(0, filas):
             for a in range(0, columnas):
                 if c <= 3:
+                    #Si se quiere cambiar de cartas, Cambiar valores de "cardsColors" por "cardsKeyboard".
                     img2 = wx.Bitmap("cardsColors/" + str(self.matrizaux[0][c]) + ".jpg", wx.BITMAP_TYPE_ANY)
                     img2 = scale_bitmap(img2, 100, 150)
                     b = 0

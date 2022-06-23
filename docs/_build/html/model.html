@@ -81,12 +81,15 @@
 </section>
 <section id="module-model.claseGrilla">
 <span id="model-clasegrilla-module"></span><h2>model.claseGrilla module<a class="headerlink" href="#module-model.claseGrilla" title="Permalink to this heading"></a></h2>
-<p>Created on 10-05-2022</p>
-<p>&#64;author: gonza</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.claseGrilla.TestFrame">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.claseGrilla.</span></span><span class="sig-name descname"><span class="pre">TestFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseGrilla.TestFrame" title="Enlazar permanentemente con esta definición"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.claseGrilla.</span></span><span class="sig-name descname"><span class="pre">TestFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseGrilla.TestFrame" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="model.claseGrilla.TestFrame.click">
+<span class="sig-name descname"><span class="pre">click</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseGrilla.TestFrame.click" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>
@@ -96,12 +99,12 @@
 <p>&#64;author: Dell</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.claseUI.InterfazGrafica">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.claseUI.</span></span><span class="sig-name descname"><span class="pre">InterfazGrafica</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica" title="Enlazar permanentemente con esta definición"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.claseUI.</span></span><span class="sig-name descname"><span class="pre">InterfazGrafica</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iden</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
-<p>Esta clase es la interfaz grafica</p>
+<p>Esta clase es la interfaz grafica.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.InterfazGrafica.actualizarCliente">
-<span class="sig-name descname"><span class="pre">actualizarCliente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica.actualizarCliente" title="Enlazar permanentemente con esta definición"></a></dt>
+<dt class="sig sig-object py" id="model.claseUI.InterfazGrafica.actualizarJugador">
+<span class="sig-name descname"><span class="pre">actualizarJugador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica.actualizarJugador" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Event</dt>
 <dd class="field-odd"><p>El parametro event liga esta funcion con la interaccion con boton4.</p>
@@ -110,18 +113,18 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.InterfazGrafica.buscarCliente">
-<span class="sig-name descname"><span class="pre">buscarCliente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica.buscarCliente" title="Enlazar permanentemente con esta definición"></a></dt>
+<dt class="sig sig-object py" id="model.claseUI.InterfazGrafica.actualizarListaJugadoresUI">
+<span class="sig-name descname"><span class="pre">actualizarListaJugadoresUI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica.actualizarListaJugadoresUI" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Event</dt>
-<dd class="field-odd"><p>El parametro event liga esta funcion con la interaccion con boton2.</p>
+<dd class="field-odd"><p>El parametro event liga esta funcion con la interaccion con botonActualizarListaJugadoresUI.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.InterfazGrafica.eliminarCliente">
-<span class="sig-name descname"><span class="pre">eliminarCliente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica.eliminarCliente" title="Enlazar permanentemente con esta definición"></a></dt>
+<dt class="sig sig-object py" id="model.claseUI.InterfazGrafica.eliminarJugador">
+<span class="sig-name descname"><span class="pre">eliminarJugador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica.eliminarJugador" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Event</dt>
 <dd class="field-odd"><p>El parametro event liga esta funcion con la interaccion con boton3.</p>
@@ -130,8 +133,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.InterfazGrafica.ingresarCliente">
-<span class="sig-name descname"><span class="pre">ingresarCliente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica.ingresarCliente" title="Enlazar permanentemente con esta definición"></a></dt>
+<dt class="sig sig-object py" id="model.claseUI.InterfazGrafica.ingresarJugador">
+<span class="sig-name descname"><span class="pre">ingresarJugador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica.ingresarJugador" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Event</dt>
 <dd class="field-odd"><p>El parametro event liga esta funcion con la interaccion con boton1.</p>
@@ -139,118 +142,15 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="model.claseUI.InterfazGrafica.seleccionarJugador">
+<span class="sig-name descname"><span class="pre">seleccionarJugador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.InterfazGrafica.seleccionarJugador" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Event</dt>
+<dd class="field-odd"><p>El parametro event liga esta funcion con la interaccion con boton2.</p>
+</dd>
+</dl>
 </dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="model.claseUI.Jugador">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.claseUI.</span></span><span class="sig-name descname"><span class="pre">Jugador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">siguiente</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anterior</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nombreJugador</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dniJugador</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">puntuacion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Jugador" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#model.claseUI.Nodos" title="model.claseUI.Nodos"><code class="xref py py-class docutils literal notranslate"><span class="pre">Nodos</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Jugador.getDniJugador">
-<span class="sig-name descname"><span class="pre">getDniJugador</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Jugador.getDniJugador" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Jugador.getNombreJugador">
-<span class="sig-name descname"><span class="pre">getNombreJugador</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Jugador.getNombreJugador" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Jugador.getPuntuacion">
-<span class="sig-name descname"><span class="pre">getPuntuacion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Jugador.getPuntuacion" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Jugador.setDniJugador">
-<span class="sig-name descname"><span class="pre">setDniJugador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dniJugador</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Jugador.setDniJugador" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Jugador.setNombreJugador">
-<span class="sig-name descname"><span class="pre">setNombreJugador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nombreJugador</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Jugador.setNombreJugador" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Jugador.setPuntuacion">
-<span class="sig-name descname"><span class="pre">setPuntuacion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">puntuacion</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Jugador.setPuntuacion" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.claseUI.</span></span><span class="sig-name descname"><span class="pre">ListaJugadores</span></span><a class="headerlink" href="#model.claseUI.ListaJugadores" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores.buscar">
-<span class="sig-name descname"><span class="pre">buscar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">posicionJugador</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.ListaJugadores.buscar" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores.buscarPrevio">
-<span class="sig-name descname"><span class="pre">buscarPrevio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">posicionJugadorAnterior</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.ListaJugadores.buscarPrevio" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores.eliminar">
-<span class="sig-name descname"><span class="pre">eliminar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.ListaJugadores.eliminar" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores.esVacia">
-<span class="sig-name descname"><span class="pre">esVacia</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.ListaJugadores.esVacia" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores.getCabeza">
-<span class="sig-name descname"><span class="pre">getCabeza</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.ListaJugadores.getCabeza" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores.getPrimero">
-<span class="sig-name descname"><span class="pre">getPrimero</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.ListaJugadores.getPrimero" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores.imprimir">
-<span class="sig-name descname"><span class="pre">imprimir</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.ListaJugadores.imprimir" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores.ingresar">
-<span class="sig-name descname"><span class="pre">ingresar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">jugadorIngresar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jugadorAnterior</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.ListaJugadores.ingresar" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.ListaJugadores.vaciar">
-<span class="sig-name descname"><span class="pre">vaciar</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.ListaJugadores.vaciar" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="model.claseUI.Nodos">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.claseUI.</span></span><span class="sig-name descname"><span class="pre">Nodos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">siguiente</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anterior</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Nodos" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Nodos.getAnterior">
-<span class="sig-name descname"><span class="pre">getAnterior</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Nodos.getAnterior" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Nodos.getSiguiente">
-<span class="sig-name descname"><span class="pre">getSiguiente</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Nodos.getSiguiente" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Nodos.setAnterior">
-<span class="sig-name descname"><span class="pre">setAnterior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">anterior</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Nodos.setAnterior" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="model.claseUI.Nodos.setSiguiente">
-<span class="sig-name descname"><span class="pre">setSiguiente</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">siguiente</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.claseUI.Nodos.setSiguiente" title="Enlazar permanentemente con esta definición"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -260,9 +160,15 @@
 <p>Created on 2 jun. 2022</p>
 <p>&#64;author: david</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="model.clasebD.botonesDificultad">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.clasebD.</span></span><span class="sig-name descname"><span class="pre">botonesDificultad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.clasebD.botonesDificultad" title="Enlazar permanentemente con esta definición"></a></dt>
+<dt class="sig sig-object py" id="model.clasebD.Button">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.clasebD.</span></span><span class="sig-name descname"><span class="pre">Button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.clasebD.Button" title="Enlazar permanentemente con esta definición"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Frame</span></code></p>
+<p>Esta es la clase de los botones de dificultad</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="model.clasebD.Button.InitUI">
+<span class="sig-name descname"><span class="pre">InitUI</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.clasebD.Button.InitUI" title="Enlazar permanentemente con esta definición"></a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </section>

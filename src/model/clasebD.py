@@ -21,15 +21,20 @@ class Button(wx.Frame):
         super(Button, self).__init__(*args, **kwargs) 
         self.InitUI() 
         
-
     def InitUI(self): 
+        colorBackGround=wx.Colour(127, 179, 213)
         self.pnl = wx.Panel(self) 
   
-        self.st = wx.Button(self.pnl, id = 1, label ="Jugar", pos =(120, 70), 
-                                          size =(300, 40),  name ="Vamo a juga") 
-        self.st.SetSize((100, 50)) 
-  
-        self.SetSize((350, 250)) 
+        self.st = wx.Button(self.pnl, id = 1, label ="Jugar", pos =(170, 50),  name ="Vamo a juga") 
+        self.st.SetSize((150, 75)) 
+        self.st2 = wx.Button(self.pnl, id = 2, label ="Usuarios", pos =(170,150),  name ="usu") 
+        self.st2.SetSize((150, 75)) 
+        
+        self.Bind(wx.EVT_BUTTON,,boton1)
+        
+        self.SetBackgroundColour(colorBackGround)
+        self.SetSize((500, 320)) 
         self.SetTitle('Inicio') 
         self.Centre() 
-  
+    def Juego(self,event):
+        

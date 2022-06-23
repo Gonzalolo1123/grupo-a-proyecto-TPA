@@ -4,6 +4,7 @@ import wx.grid as wxgrid
 import random
 from model.claseRender import MyImageRenderer
 from model.claseRender import scale_bitmap
+from pip._vendor.pygments import style, styles
 
 filas = 4
 columnas = 4
@@ -11,9 +12,10 @@ columnas = 4
 class TestFrame(wx.Frame):
     def __init__(self, parent, title):
         '''
-        :parent:
-        :title:
+        :parent: Es el padre de la ventana.
+        :title: Es el titulo de la ventana.
         '''
+        icono = wx.Icon("icono.png")
         self.click1 = []
         self.click2 = []
         self.fil = None
@@ -25,8 +27,9 @@ class TestFrame(wx.Frame):
         random.shuffle(res)
         self.matrizaux.append(res)
         self.M = [self.matrizaux[0][columnas * i: columnas * (i + 1)] for i in range(filas)]
-
-        frame = wx.Frame.__init__(self, parent=parent, title=title, size=(500,700))
+        styles = (wx.CLOSE_BOX|wx.CAPTION)
+        frame = wx.Frame.__init__(self, parent=parent, title=title, size=(500,700), style=styles)
+        self.SetIcon(icono)
         panel = wx.Panel(self, -1)
         grid = wxgrid.Grid(panel, -1, size=(500, 700))
         grid.CreateGrid(filas, columnas)
