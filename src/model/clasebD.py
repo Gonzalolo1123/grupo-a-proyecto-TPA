@@ -6,7 +6,6 @@ Created on 2 jun. 2022
 import wx
 from view import mainGrilla
 from controller.controller import controller
-from view.mainGrilla import Grilla
 class Button(wx.Frame): 
     '''
     Esta es la clase de los botones de dificultad
@@ -31,13 +30,9 @@ class Button(wx.Frame):
         self.st.SetSize((150, 75)) 
         self.st2 = wx.Button(self.pnl, id = 2, label ="Usuarios", pos =(170,150),  name ="usu") 
         self.st2.SetSize((150, 75)) 
-        
-        self.Bind(wx.EVT_BUTTON,self.Juego,self.st)
-        
+
         self.SetBackgroundColour(colorBackGround)
         self.SetSize((500, 320)) 
         self.SetTitle('Inicio') 
         self.Centre()
          
-    def Juego(self,event):
-        self.grilla

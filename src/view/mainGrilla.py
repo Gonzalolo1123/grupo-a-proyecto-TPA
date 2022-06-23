@@ -1,8 +1,7 @@
 import wx
 from model.claseGrilla import TestFrame
-class Grilla:
-    if __name__ == '__main__':
-        app = wx.App()
-        fr = TestFrame(None, "Test Grid")
-        fr.Show()
-        app.MainLoop()
+if __name__ == '__main__':
+    app = wx.App()
+    fr = TestFrame(None, "Test Grid")
+    fr.Show()
+    app.MainLoop()
