@@ -8,17 +8,37 @@ import wx
 import wx.grid as wxgrid
 
 def scale_bitmap(bitmap, width, height):
+    '''
+    :bitmap: Es el mapa de bits que conforma la carta.
+    :width: Es el grosor de la carta.
+    :height: Es la altura de la carta.
+    '''
     image = wx.ImageFromBitmap(bitmap)
     image = image.Scale(width, height, wx.IMAGE_QUALITY_HIGH)
     result = wx.BitmapFromImage(image)
     return result
 
 class MyImageRenderer(wxgrid.GridCellRenderer):
+    '''
+    Es la clase
+    '''
     def __init__(self, img):
+        '''
+        :img: Es la imagen.
+        '''
         wxgrid.GridCellRenderer.__init__(self)
         self.img = img
 
     def Draw(self, grid, attr, dc, rect, row, col, isSelected):
+        '''
+        :grid: Es.
+        :attr: Es.
+        :dc: Es.
+        :rect: Es.
+        :row: Es.
+        :col: Es.
+        :isSelected: Es.
+        '''
         image = wx.MemoryDC()
         image.SelectObject(self.img)
         dc.SetBackgroundMode(wx.SOLID)

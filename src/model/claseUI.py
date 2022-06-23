@@ -18,7 +18,7 @@ class InterfazGrafica(wx.Frame):
         
         '''
         :parent: Es el padre de la ventana.
-        :id: Es el identificador de la ventana. Puede tomar un valor de -1 para indicar un valor predeterminado.
+        :iden: Es el identificador de la ventana. Puede tomar un valor de -1 para indicar un valor predeterminado.
         '''
         styles = (wx.CLOSE_BOX|wx.CAPTION)
         wx.Frame.__init__(self, parent, iden, "Jugadores",size=(600,700), style=styles)

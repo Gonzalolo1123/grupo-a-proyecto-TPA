@@ -9,6 +9,9 @@ columnas = 4
 
 
 class TestFrame(wx.Frame):
+    '''
+    Esta es la clase de la interfaz con las cartas.
+    '''
     def __init__(self, parent, title):
         '''
         :parent: Es el padre de la ventana.
@@ -74,6 +77,9 @@ class TestFrame(wx.Frame):
             self.grid.SetColLabelSize(0)
         print(self.M)
     def click(self, event):
+        '''
+        :event: El parametro event liga esta funcion con la interaccion con cada carta.
+        '''
         self.col = event.GetCol()
         self.fil = event.GetRow()
         self.cont += 1
