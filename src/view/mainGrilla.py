@@ -1,6 +1,4 @@
-
 import wx
-
 from model.claseGrilla import TestFrame
 
 if __name__ == '__main__':
